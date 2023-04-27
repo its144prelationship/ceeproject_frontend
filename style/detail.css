@@ -34,7 +34,39 @@ body{
     flex-basis: 200px;
     height: 660px;
     width: 250px;
-    padding: 30px 20px;   
+    padding: 30px 20px;
+    overflow: auto; 
+}
+
+::-webkit-scrollbar{
+    width: 2vw;
+    height: 50%;
+    max-height: 50%;
+    flex-direction: column;
+    display: flex;
+    border-radius: 30px;
+}
+::-webkit-scrollbar-track{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background: #81903a;
+    border-radius: 30px;
+    /* width: 2em;
+    height: 50%;
+    max-height: 50%; */
+}
+:-webkit-scrollbar{
+    background: #81903a;
+}
+::-webkit-scrollbar-thumb{
+    background: #e1e6e1;
+    border-radius: 12px;
+    
+}
+::-webkit-scrollbar-button{
+    height: 50px;
+    width: 50px;
+
 }
 #yearbox{
     justify-content: center;
@@ -90,7 +122,8 @@ body{
     padding: 5px;
 }
 #title{
-    justify-content: center;
+    display: flex;
+    justify-content: left;
     text-align: left;
     padding: 5px;
     background: rgba(248, 250, 236, 0.499);
@@ -171,3 +204,50 @@ body{
     margin-left: 60px;
 }
 
+#contain-button{
+    justify-content: right;
+    align-content: right;
+}
+#close-button{
+    background-color: hsl(357, 75%, 35%);
+    border-radius: 50px;
+    height: 25px;
+    width: 25px;
+    border: 0px;
+    color: #FFFFFF;
+}
+
+#close-button:hover{
+    background-color: hsl(357, 72%, 23%);
+    border-radius: 50px;
+    border: 0px;
+    color: #FFFFFF;
+}
+#delete-event{
+    text-align: right;
+    justify-content: flex-end;
+    align-self: right;
+    border-radius: 12px;
+    border: 0px;
+    font-family: Manrope;
+    font-size: 12px;
+    color:#ffffff;
+    background-color: #9a4b4b;
+    margin-left: 75%;
+    display: inline-block;
+    padding: 2px;
+}
+#delete-event:hover{
+    text-align: right;
+    justify-content: flex-end;
+    align-self: right;
+    border-radius: 12px;
+    border: 0px;
+    font-family: Manrope;
+    font-size: 12px;
+    color:#ffffff;
+    background-color: hsl(356, 97%, 24%);
+    margin-left: 150px;
+    display: inline-block;
+    padding: 2px;
+}

@@ -1,6 +1,7 @@
 var student_name;
 var student_id;
 var profilepic
+var user_ID;
 // var myCalendar;
 var myCourse;
 var currentday = "TUE";
@@ -9,17 +10,27 @@ var currentyear = 2023;
 var currentdate = 19;
 var eventindate = [];
 var myselection;
+var today;
 const det = document.getElementById('det');
 
 const event1 = {"starttime":{"hour":"13","min":"45"} , "endtime":{"hour":"14","min":"00"} , "eventname":"QUIZ PROGLANG" , "category":{"subject":"Prog Lang","color":"#0097B2"} , "creator":"Kim Taerae" , "detail":"taeraetaerae" , "member":["ung","pp","meow"] , "eventid":"12345"};
 const event2 = {"starttime":{"hour":"10","min":"20"} , "endtime":{"hour":"24","min":"60"} , "eventname":"Meeing CEE" , "category":{"subject":"COM ENG ESS","color":"#216B39"} , "creator":"Kim Taerae" , "detail":"cupid is dump" , "member":["ung"] , "eventid":"12346"};
-const myCalendar = {"2023-19-4":[event1,event2]}
+const myCalendar = {"2023-19-4":[event1,event2,event2,event2,event2,event2]}
 
 function showDetail(date){
+    today = date;
     //create detail bar and initialize headline
     const detailbar = document.createElement('div');
     detailbar.id = "detailbar";
     det.appendChild(detailbar);
+    const container = document.createElement('div');
+    container.id = "contain-button";
+    detailbar.appendChild(container);
+    const closebutton = document.createElement('button');
+    closebutton.id = "close-button";
+    closebutton.innerText = "X";
+    closebutton.addEventListener("click",closeDetailBar);
+    container.appendChild(closebutton);
     const year = document.createElement('div');
     year.id = "yearbox";
     detailbar.appendChild(year);
@@ -55,13 +66,13 @@ function showTaskbox(event){
     const title = document.createElement('section');
     title.id = "title";
     taskbox.appendChild(title);
-    //element in title box dot + headline
+    //element in title box dot + headline + 
     //dot
     const dot = document.createElement('span');
     dot.id = "dot";
     dot.style.backgroundColor = event.category.color;
     title.appendChild(dot);
-    //headline name + time
+    //headline name + time 
     const texttitle = document.createElement('div');
     texttitle.id = "texttitle";
     title.appendChild(texttitle);
@@ -120,7 +131,42 @@ function showTaskbox(event){
         others.innerText = "";
     }
     detail.append(detailnote,memberline,others);
+    //delete event
+    const deletebutton = document.createElement('button');
+    deletebutton.id = "delete-event";
+    deletebutton.innerText = "DELETE";
+    deletebutton.addEventListener("click",deleteEventHandler);
+    taskbox.appendChild(deletebutton)
 }
+
+function closeDetailBar(){
+    const detailbar = document.getElementById("detailbar");
+    detailbar.remove();
+}
+
+function deleteEventHandler(eventId){
+    //DELETE FROM LIST OF EVENT
+    deleteEvent(eventId);
+    //fetch new data to the calendar
+    //getInfo();
+    //refresh calendar 
+    //code??
+    //refresh detail bar
+    closeDetailBar();
+    showDetail(today);
+}
+
+const deleteEvent = async (eventId) => { 
+    const userId  = user_ID;
+    const options = {
+        method: "DELETE",
+        credentials: "include",
+        body: JSON.stringify({
+            userId,
+        }),
+    };
+    await fetch(`http://${backendIPAddress}/${eventId}`,options);
+};
 console.log("test");
 showDetail("2023-19-4");
 
