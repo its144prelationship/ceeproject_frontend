@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Plant</title>
+
+    <link rel="stylesheet" href="../style/calendar.css">
+  </head>
+  <body>
+    
+    <div id="container">
+      <div id="header">
+        <button id="backButton"><</button>
+        <div id="monthDisplay"></div>
+        <button id="nextButton">></button>
+      </div>
+
+      <div id="weekdays">
+        <div id="sun">SUN</div> 
+        <div id="mon">MON</div> 
+        <div id="tue">TUE</div> 
+        <div id="wed">WED</div> 
+        <div id="thu">THU</div> 
+        <div id="fri">FRI</div> 
+        <div id="sat">SAT</div>
+      </div>
+
+      <div id="calendar"></div>
+    </div>
+
+    <div id="newEventModal">
+      <div id="dateevent">Wednesday, 26th April 2023</div>
+      <div id="eventTitle">
+        <div id="eventColor"> </div>
+        <input type="text" id="eventTitleInput" placeholder="EVENT NAME">
+      </div>
+      <div id="eventTime">
+        <div>TIME : </div>
+        <input type="text" id="hrfirst0" placeholder="0">
+        <input type="text" id="hrfirst1" placeholder="8">
+        <img src="../image/activecolon.png" id="activecolon">
+        <input type="text" id="minfirst0" placeholder="0">
+        <input type="text" id="minfirst1" placeholder="0">
+        <img src="../image/arrow.png" id="arrow">
+        <input type="text" id="hrlast0">
+        <input type="text" id="hrlast1">
+        <img src="../image/inactivecolon.png" id="inactivecolon">
+        <input type="text" id="minlast0">
+        <input type="text" id="minlast1">
+      </div>
+
+      <div id="categories">
+        <div>CATEGORIES : </div>
+        <div id="categoriesdropdown">
+          <button id="dropbtn">--- Categories Selection ---</button>
+          <div id="categoriescontent"></div>
+        </div>
+    </div>
+
+      <div id="detail">
+          <div>DETAILS : </div>
+          <textarea id="eventdetail"></textarea>
+      </div>
+
+      <div id="invite">
+          <div>INVITE YOUR FRIENDS :</div>
+          <input type="text" id="eventinvite"><br>
+      </div>
+
+      <div id="allbuttonevent">
+        <button id="saveButton">CREATE</button>
+        <button id="cancelButton">CANCLE</button>
+      </div>
+      
+    </div>
+
+    <!-- <div id="deleteEventModal">
+      <h2>Event</h2>
+
+      <p id="eventText"></p>
+
+      <button id="deleteButton">Delete</button>
+      <button id="closeButton">Close</button>
+    </div> -->
+
+    <div id="modalBackDrop"></div>
+
+    <script src="../script/calendar.js"></script>
+  </body>
+</html>
