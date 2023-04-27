@@ -17,9 +17,9 @@ const Color = ["#5C1999","#0097B2","#4256B2","#216B39","#67AB3D","#FFFD61","#FFA
 const getInfo = async () => { //fetch from backend 
     const options = {
         method: "GET",
-        Credential: "include",
+        credential: "include",
     };
-    await fetch('http://${backendIPAddress}/items',options).then((response) => response.json())
+    await fetch('http://${backendIPAddress}/',options).then((response) => response.json())
     .then((data) =>{
         const info = data;
         user_ID = info.userId;
