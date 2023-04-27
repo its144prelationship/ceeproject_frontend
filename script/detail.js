@@ -1,6 +1,5 @@
 var student_name;
 var student_id;
-var profilepic
 var user_ID;
 // var myCalendar;
 var myCourse;
@@ -8,14 +7,13 @@ var currentday = "TUE";
 var currentmonth = "APR";
 var currentyear = 2023;
 var currentdate = 19;
-var eventindate = [];
 var myselection;
 var today;
 const det = document.getElementById('det');
 
 const event1 = {"starttime":{"hour":"13","min":"45"} , "endtime":{"hour":"14","min":"00"} , "eventname":"QUIZ PROGLANG" , "category":{"subject":"Prog Lang","color":"#0097B2"} , "creator":"Kim Taerae" , "detail":"taeraetaerae" , "member":["ung","pp","meow"] , "eventid":"12345"};
 const event2 = {"starttime":{"hour":"10","min":"20"} , "endtime":{"hour":"24","min":"60"} , "eventname":"Meeing CEE" , "category":{"subject":"COM ENG ESS","color":"#216B39"} , "creator":"Kim Taerae" , "detail":"cupid is dump" , "member":["ung"] , "eventid":"12346"};
-const myCalendar = {"2023-19-4":[event1,event2,event2,event2,event2,event2]}
+const myCalendar = {"2023-04-19":[event1,event2,event2,event2,event2,event2]}
 
 function showDetail(date){
     today = date;
@@ -168,5 +166,5 @@ const deleteEvent = async (eventId) => {
     await fetch(`http://${backendIPAddress}/${eventId}`,options);
 };
 console.log("test");
-showDetail("2023-19-4");
+showDetail("2023-04-19");
 

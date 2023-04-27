@@ -20,7 +20,7 @@ body{
     justify-content: right;
     padding: 50px;
 }
-.filterbar{
+#filterbar{
     backdrop-filter: blur(5.5px);
     -webkit-backdrop-filter: blur(5.5px);
     background-color: #e8ff56;
@@ -37,10 +37,39 @@ body{
     width: 250px;
     padding: 30px 20px;
     opacity: 0.8;
+    overflow: auto;
+}
+::-webkit-scrollbar{
+    width: 1.5vw;
+    height: 50%;
+    max-height: 50%;
+    flex-direction: column;
+    display: flex;
+    border-radius: 30px;
+}
+::-webkit-scrollbar-track{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background: #f8ffc8;
+    border-radius: 30px;
+    /* width: 2em;
+    height: 50%;
+    max-height: 50%; */
+}
+:-webkit-scrollbar{
+    background: #f8ffc8;
+}
+::-webkit-scrollbar-thumb{
+    background: #e1e6e1;
+    border-radius: 12px;
     
 }
+::-webkit-scrollbar-button{
+    height: 50px;
+    width: 50px;
+}
 
-.headline{
+#headline{
     background: #f8ffc8;
     border-radius: 12px;
     justify-content: center;
@@ -54,13 +83,18 @@ body{
     padding: 1px;
     text-align: center;
 }
-.eachrow{
+#title{
+    color: hsl(97, 21%, 19%);
+    font-size: 18px;
+    font-family: Manrope;
+}
+#eachrow{
     display: flex;
     justify-content: left;
     margin: 8% 0;
     padding: 4px 1px;
 }
-.checkbox{
+#checkbox{
     background: #f8ffc8;
     box-shadow: 0 1px 5px #c8c9a5;
     border: 0px;
@@ -69,11 +103,11 @@ body{
     justify-content: center;
     margin : 0 2%;
 }
-.checkbox:hover{
+#checkbox:hover{
     background: #cad677;
     box-shadow: 0 1px 5px #c8c9a5;
 }
-.allcheckbox{
+#allcheckbox{
     background: #f8ffc8;
     box-shadow: 0 1px 5px #c8c9a5;
     border: 0px;
@@ -82,17 +116,17 @@ body{
     justify-content: center;
     margin : 0 2%;
 }
-.allcheckbox:hover{
+#allcheckbox:hover{
     background: #cad677;
     box-shadow: 0 1px 5px #c8c9a5;
 }
-.subject{
+#subject{
     color: hsl(97, 23%, 35%);
     margin: 0 2%;
     font-size: 16px;
     font-family:Manrope;
 }
-.dot{
+#dot{
     height: 12.5px;
     width: 12.5px;
     background-color: rgb(1, 120, 32);
