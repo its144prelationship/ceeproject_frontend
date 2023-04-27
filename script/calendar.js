@@ -1,10 +1,8 @@
 let nav = 0;
 let clicked = null;
-// let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
 
 const calendar = document.getElementById('calendar');
 const newEventModal = document.getElementById('newEventModal');
-// const deleteEventModal = document.getElementById('deleteEventModal');
 const backDrop = document.getElementById('modalBackDrop');
 const eventTitleInput = document.getElementById('eventTitleInput');
 const categoriesContent = document.getElementById('categoriescontent');
@@ -70,9 +68,6 @@ function openModal(date) {
   hrlast0.value = hrlast1.value = minlast0.value = minlast1.value = '';
   eventdetail.value = '';
   eventinvite.value = '';
-  // while(showFriendList.firstChild){
-  //   showFriendList.removeChild(showFriendList.firstChild);
-  // }
 }
 
 function load() {
@@ -151,13 +146,6 @@ function load() {
         daySquare.id = 'currentDay';
       }
 
-      // if (eventForDay) {
-      //   const eventDiv = document.createElement('div');
-      //   eventDiv.classList.add('event');
-      //   eventDiv.innerText = eventForDay.title;
-      //   daySquare.appendChild(eventDiv);
-      // }
-
       // myCalendar.array.forEach(element => {
       //   
       // });
@@ -200,9 +188,7 @@ function load() {
 }
 
 function closeModal() {
-  // eventTitleInput.classList.remove('error');
   newEventModal.style.display = 'none';
-  // deleteEventModal.style.display = 'none';
   backDrop.style.display = 'none';
   clicked = null;
   load();
@@ -248,26 +234,7 @@ function saveEvent() {
     // console.log(eventName, eventStartTime, eventEndTime, eventCategory, eventDetail, eventFriend, eventDate);
   }
 
-
-  //   eventTitleInput.classList.remove('error');
-
-  //   events.push({
-  //     date: clicked,
-  //     title: eventTitleInput.value,
-  //   });
-
-  //   // localStorage.setItem('events', JSON.stringify(events));
-  //   closeModal();
-  // } else {
-  //   eventTitleInput.classList.add('error');
-  // }
 }
-
-// function deleteEvent() {
-//   events = events.filter(e => e.date !== clicked);
-//   localStorage.setItem('events', JSON.stringify(events));
-//   closeModal();
-// }
 
 function initButtons() {
   document.getElementById('nextButton').addEventListener('click', () => {
@@ -282,8 +249,6 @@ function initButtons() {
 
   document.getElementById('saveButton').addEventListener('click', saveEvent);
   document.getElementById('cancelButton').addEventListener('click', closeModal);
-  // document.getElementById('deleteButton').addEventListener('click', deleteEvent);
-  // document.getElementById('closeButton').addEventListener('click', closeModal);
 }
 
 function initEventDropdown(){
