@@ -1,0 +1,104 @@
+html{
+    box-sizing: border-box;
+    height: 100%;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #EAF4CF;
+    align-items: top;
+    display: flex;
+    font-family: 'Dosis',sans-serif;
+    font-display: swap;
+    height: inherit;
+    justify-content: left;
+    padding: 10px;
+}
+.header{
+    justify-content:center;
+    align-content: center;
+    display: flex;
+    padding:0px;
+    align-items: flex;
+}
+
+.userinfo{
+    background: #e1e6e1b8;
+    opacity: 1;
+    border-radius:20px;
+    align-items: left;
+    justify-content: center;
+    padding: 2px;
+    text-align: left;
+    height: 100px;
+    width: 350px;
+    margin-right: 10%;
+}
+
+.profile{
+    height: 80px;
+    width: 80px;
+    border-radius: 50px;
+    display: inline-block;
+    margin: 0%;
+    float: left;
+}
+
+.userid{
+    font-size: 18px;
+    font-family: Manrope;
+    padding: 5px;
+    padding-left: 10px;
+    color: hsl(97, 23%, 35%);
+    display: inline-block;
+}
+
+.username{
+    font-size: 18px;
+    font-family: Manrope;
+    padding: 1px;
+    margin: 0%;
+    padding-left: 10px;
+    color: hsl(97, 23%, 35%);
+    display: inline-block;
+}
+.logout{
+    background-color: hsl(97, 23%, 35%);
+    border: 0px;
+    border-radius: 12px;
+    color: hsl(0, 0%, 100%);
+    font-size: 12px;
+    font-family: Manrope;
+    height: 24px;
+    width: 60px;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    padding: 2px;
+    margin-left: 45%;
+    margin-top: 2%;
+    display: inline-block;
+}
+.logout:hover{
+    background-color: hsl(357, 75%, 35%);
+}
+.logopic{
+    height: 150px;
+    width: 411px;
+    display: inline-block;
+    margin-left: 40%;
+}
+
+.noti-icon{
+    height: 50px;
+    width: 50px;
+    display:block;
+    margin-left: 1200%;
+}
