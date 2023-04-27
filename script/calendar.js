@@ -19,7 +19,7 @@ var colorEvent = ['#5C1999','#0097B2','#4256B2','#216B39','#67AB3D',
                   '#9B8809','#FFA6F9','#F48F6A','#A8E0FF','#FFFFFF']
 
 //event info
-var eventName, eventStartTime, eventEndTime, eventCategory, eventDetail, eventFriend;
+var eventName, eventStartTime, eventEndTime, eventCategory, eventDetail, eventFriend, eventDate;
 
 //time
 const hrfirst0 = document.getElementById('hrfirst0');
@@ -32,25 +32,30 @@ const minlast0 = document.getElementById('minlast0');
 const minlast1 = document.getElementById('minlast1');
 const eventdetail = document.getElementById('eventdetail');
 const eventinvite = document.getElementById('eventinvite');
+const showFriendList = document.getElementById('friendname');
+
+//test info
+const myCalendar = {"2023-4-19":[{"eventname":"QUIZ PROGLANG",
+                                  "category":{"subject":"PROG LANG","color":"#0097B2"}},
+
+                                  {"eventname":"Meeing CEE" , 
+                                  "category":{"subject":"COM ENG ESS","color":"#216B39"}}],
+                    "2023-4-6":[{"eventname":"QUIZ CALII",
+                                  "category":{"subject":"CALII","color":'#62462C'}}]}
 
 function initializeEventInfo(){
   eventName = '';
-  eventStartTime = ['-1','-1','-1','-1'];
-  eventEndTime = ['-1','-1','-1','-1']; 
+  eventStartTime = ['-1','-1'];
+  eventEndTime = ['24','60']; 
   eventCategory = '--- Categories Selection ---';
   eventDetail = '';
   eventFriend = [];
 
   eventTitleInput.style.border = '1px solid #000000';
   categoriesDropbox.style.border = '1px solid #000000';
-  hrfirst0.style.border = '1px solid #000000';
-  hrfirst1.style.border = '1px solid #000000';
-  minfirst0.style.border = '1px solid #000000';
-  minfirst1.style.border = '1px solid #000000';
-  hrlast0.style.border = '1px solid #47623D';
-  hrlast1.style.border = '1px solid #47623D';
-  minlast0.style.border = '1px solid #47623D';
-  minlast1.style.border = '1px solid #47623D';
+  hrfirst0.style.border = hrfirst1.style.border = minfirst0.style.border = minfirst1.style.border = '1px solid #000000';
+  hrlast0.style.border = hrlast1.style.border = minlast0.style.border = minlast1.style.border = '1px solid #47623D';
+  eventinvite.style.border = '1px solid #000000';
 }
 
 
@@ -64,12 +69,15 @@ function openModal(date) {
   hrfirst0.value = hrfirst1.value = minfirst0.value = minfirst1.value = '';
   hrlast0.value = hrlast1.value = minlast0.value = minlast1.value = '';
   eventdetail.value = '';
-  eventinvite.value = ''
+  eventinvite.value = '';
+  // while(showFriendList.firstChild){
+  //   showFriendList.removeChild(showFriendList.firstChild);
+  // }
 }
 
 function load() {
   const dt = new Date();
-  console.log(dt);
+  // console.log(dt);
 
   if (nav !== 0) {
     dt.setMonth(new Date().getMonth() + nav);
@@ -114,7 +122,30 @@ function load() {
       calval.appendChild(addEventButton);
       calval.appendChild(dayNum);
       daySquare.appendChild(calval);
-      // const eventForDay = events.find(e => e.date === dayString);
+
+      // add Event in that Day
+      var dayString2 = String(dayString.split('/')[2]+'-'+dayString.split('/')[0]+'-'+dayString.split('/')[1]);
+      if (dayString2 in myCalendar) {
+        myCalendar[dayString2].forEach((item, index) => {
+          if (index<2){
+            var createEventName = item["eventname"];
+            var createEventColor = item["category"]["color"];
+
+            const eventDiv = document.createElement('div');
+            const eventDivName = document.createElement('div');
+            const eventDivColor = document.createElement('div');
+            eventDivColor.id = 'newEventDivColor';
+            eventDivName.id = 'newEventDivName';
+            eventDiv.id = 'newEventDiv';
+            eventDivColor.style.backgroundColor = createEventColor;
+            eventDivName.innerText = createEventName;
+            eventDiv.appendChild(eventDivColor);
+            eventDiv.appendChild(eventDivName);
+            daySquare.appendChild(eventDiv);
+          }
+        });
+      }
+      // console.log(dayString2);
 
       if (i - paddingDays === day && nav === 0) {
         daySquare.id = 'currentDay';
@@ -126,6 +157,10 @@ function load() {
       //   eventDiv.innerText = eventForDay.title;
       //   daySquare.appendChild(eventDiv);
       // }
+
+      // myCalendar.array.forEach(element => {
+      //   
+      // });
 
       // daySquare.addEventListener('click', () => openModal(dayString));
 
@@ -145,7 +180,7 @@ function load() {
           else currentDate = currentDate+"th";
           currentDate = currentDate+" "+mon[dayString.split('/')[0]]+" "+dayString.split('/')[2];
           x.innerHTML = d[(paddingDays+Number(dayString.split('/')[1]))%7]+" "+currentDate;
-          return 
+          eventDate = dayString.split('/')[2]+'-'+dayString.split('/')[0]+'-'+dayString.split('/')[1];
         });
       });
 
@@ -165,11 +200,10 @@ function load() {
 }
 
 function closeModal() {
-  eventTitleInput.classList.remove('error');
+  // eventTitleInput.classList.remove('error');
   newEventModal.style.display = 'none';
   // deleteEventModal.style.display = 'none';
   backDrop.style.display = 'none';
-  eventTitleInput.value = '';
   clicked = null;
   load();
 }
@@ -188,32 +222,31 @@ function saveEvent() {
   (isNaN(hrfirst0.value) || isNaN(hrfirst1.value) || isNaN(minfirst0.value) || isNaN(minfirst1.value)) ||
   (Number(hrfirst0.value+hrfirst1.value)<0 || Number(hrfirst0.value+hrfirst1.value)>23 || Number(minfirst0.value+minfirst1.value)<0 || Number(minfirst0.value+minfirst1.value)>59)) {
     canSaveEvent = false;
-    hrfirst0.style.border = '2px solid #d94c26';
-    hrfirst1.style.border = '2px solid #d94c26';
-    minfirst0.style.border = '2px solid #d94c26';
-    minfirst1.style.border = '2px solid #d94c26';
+    hrfirst0.style.border = hrfirst1.style.border = minfirst0.style.border = minfirst1.style.border = '2px solid #d94c26';
   } else {
-    hrfirst0.style.border = '1px solid #000000';
-    hrfirst1.style.border = '1px solid #000000';
-    minfirst0.style.border = '1px solid #000000';
-    minfirst1.style.border = '1px solid #000000';
+    hrfirst0.style.border = hrfirst1.style.border = minfirst0.style.border = minfirst1.style.border = '1px solid #000000';
   }
   if (((!hrlast0.value || !hrlast1.value || !minlast0.value || !minlast1.value) && !(!hrlast0.value && !hrlast1.value && !minlast0.value && !minlast1.value)) ||
   (hrlast0.value && (isNaN(hrlast0.value) || isNaN(hrlast1.value) || isNaN(minlast0.value) || isNaN(minlast1.value))) || 
   (hrlast0.value && (Number(hrlast0.value+hrlast1.value)<0 || Number(hrlast0.value+hrlast1.value)>23 || Number(minlast0.value+minlast1.value)<0 || Number(minlast0.value+minlast1.value)>59))) {
     canSaveEvent = false;
-    hrlast0.style.border = '2px solid #d94c26';
-    hrlast1.style.border = '2px solid #d94c26';
-    minlast0.style.border = '2px solid #d94c26';
-    minlast1.style.border = '2px solid #d94c26';
+    hrlast0.style.border = hrlast1.style.border = minlast0.style.border = minlast1.style.border = '2px solid #d94c26';
   } else {
-    hrlast0.style.border = '1px solid #47623D';
-    hrlast1.style.border = '1px solid #47623D';
-    minlast0.style.border = '1px solid #47623D';
-    minlast1.style.border = '1px solid #47623D';
+    hrlast0.style.border = hrlast1.style.border = minlast0.style.border = minlast1.style.border = '1px solid #47623D';
   }
 
+  if(canSaveEvent) {
+    eventName = eventTitleInput.value;
+    eventStartTime = [hrfirst0.value+hrfirst1.value, minfirst0.value+minfirst1.value];
+    if(hrlast0.value) eventEndTime = [hrlast0.value+hrlast1.value, minlast0.value+minlast1.value]; 
+    eventCategory = newEventModal.querySelector('#categories #categoriesdropdown #dropbtn').innerHTML;
+    eventDetail = eventdetail.value;
+    if(eventinvite.value) eventFriend.push(eventinvite.value);
 
+    closeModal();
+
+    // console.log(eventName, eventStartTime, eventEndTime, eventCategory, eventDetail, eventFriend, eventDate);
+  }
 
 
   //   eventTitleInput.classList.remove('error');
@@ -308,8 +341,47 @@ function initEventDropdown(){
   });
 }
 
+eventinvite.addEventListener('keypress', function (event) {
+  if (event.key === 'Enter') {
+    if (!eventinvite.value || eventFriend.includes(eventinvite.value)){
+      eventinvite.style.border = '2px solid #d94c26';
+    }else{
+      eventinvite.style.border = '1px solid #000000';
+      const finv = document.createElement('div');
+      const fname = document.createElement('div');
+      const fclose = document.createElement('button');
+      finv.id = 'onefriendname';
+      fname.id = 'onefriendname1';
+      fclose.id = 'onefriendname2';
+
+      eventFriend.push(eventinvite.value);
+
+      fname.textContent = eventinvite.value;
+      fclose.innerText = 'x'
+      finv.appendChild(fname);
+      finv.appendChild(fclose);
+      showFriendList.appendChild(finv);
+
+      eventinvite.value = '';
+
+      fclose.addEventListener('mouseenter', () => {
+        fclose.style.color = '#FFFFFF';
+        fclose.style.backgroundColor = '#8DC561';
+      })
+      fclose.addEventListener('mouseleave', () => {
+        fclose.style.color = '#8DC561';
+        fclose.style.backgroundColor = '#FFFFFF';
+      })
+      fclose.addEventListener('click', () => {
+        eventFriend.splice(eventFriend.indexOf(fname.textContent), 1);
+        // console.log(eventFriend);
+        finv.remove();
+      })
+    }
+  }
+});
+
 initEventDropdown();
 initButtons();
 load();
-
 
