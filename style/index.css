@@ -35,6 +35,8 @@ body{
     display: flex;
     padding:0px;
     align-items: flex;
+    margin-left: 8%;
+    margin-top: 2%;
 } 
 
 .userinfo{
@@ -43,10 +45,10 @@ body{
     border-radius:20px;
     align-items: left;
     justify-content: center;
-    padding: 2px;
+    /* padding: 2px; */
     text-align: left;
-    height: 100px;
-    width: 350px;
+    height: 20%;
+    width: 25%;
     /* margin-right: 10%; */
 }
 
@@ -56,24 +58,35 @@ body{
     border-radius: 50px;
     display: inline-block;
     /* margin: 0%; */
-    float: left;
+    /* float: left; */
+    margin-right: 2%;
+    margin-left: 2%;
 }
 
+#textbox-profile{
+    justify-content: left;
+    text-align: left;
+    margin-top: 2%;
+    margin-left: 2%;
+    height: 20%;
+    display: inline-block;
+}
 .userid{
     font-size: 18px;
     font-family: Manrope;
-    padding: 5px;
-    padding-left: 10px;
+    padding: 1%;
+    /* padding-left: 10px; */
     color: hsl(97, 23%, 35%);
     display: inline-block;
+    margin-bottom: 0%;
 }
 
 .username{
     font-size: 18px;
     font-family: Manrope;
-    padding-left: 10px;
-    margin: 0% 5%;
-    padding-left: 10px;
+    padding: 1%;
+    /* margin: 0% 5%; */
+    /* padding-left: 10px; */
     color: hsl(97, 23%, 35%);
     /* display: inline-block; */
 }
@@ -84,14 +97,14 @@ body{
     color: hsl(0, 0%, 100%);
     font-size: 12px;
     font-family: Manrope;
-    height: 24px;
-    width: 60px;
+    height: 25%;
+    width: 30%;
     text-align: center;
     align-content: center;
     justify-content: center;
-    padding: 2px;
-    margin-left: 45%;
-    margin-top: 2%;
+    padding: 2%;
+    margin-left: 65%;
+    /* margin-top: 2%; */
     display: inline-block;
 }
 .logout:hover{

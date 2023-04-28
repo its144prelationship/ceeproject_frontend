@@ -60,7 +60,7 @@ function showDetail(date, currentday, currentmonth, currentyear, currentdate){
     headline.id = "headline";
     detailbar.appendChild(headline);
     const headtext = document.createElement('p');
-    headtext.id = "date"
+    headtext.id = "date-detail"
     headtext.innerText = currentday+" "+currentdate+" "+currentmonth;
     headline.appendChild(headtext);
     //create mySelectionBox 
@@ -70,9 +70,11 @@ function showDetail(date, currentday, currentmonth, currentyear, currentdate){
     myselection = selection;
     //map all the event in that day into detailbar
     // myCalendar[date].map(showTaskbox(myCalendar[date]));
-    myCalendar[date].forEach(element => {
-        showTaskbox(element);
-    });
+    if (date in myCalendar ){
+        myCalendar[date].forEach(element => {
+            showTaskbox(element);
+        });
+    }
 
 };
 // event = {starttime:{hour:__,min:__},endtime:{hour:__,min:__},
@@ -127,6 +129,7 @@ function showTaskbox(event){
     note.id = "note";
     notetitle.innerText = "Note : ";
     note.innerText = event.detail;
+    detailnote.id = "detailnote"
     detailnote.append(notetitle,note);
     const memberline = document.createElement('div');
     parttitle.id = "parttitle";

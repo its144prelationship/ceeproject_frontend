@@ -17,29 +17,33 @@
     font-display: swap;
     height: inherit;
     justify-content: right;
-    padding: 50px;
+    padding: 8%;
+}
+#det{
+    height: 660px;
+    width: 275px;
 }
 #detailbar{
-    backdrop-filter: blur(5.5px);
-    -webkit-backdrop-filter: blur(5.5px);
+    /* backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px); */
     background-color: #ECF3EC;
-    border: 1 px solid #000000;
+    border: 1%  solid #000000;
     border-radius: 30px;
     box-shadow: 0 1px 5px #7d806e;
     color: #000000;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    /* backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px); */
     background: #ECF3EC;
     border: 0px solid #fafede;
-    flex-basis: 200px;
+    /* flex-basis: 200px; */
     height: 660px;
-    width: 300px;
-    padding: 30px 20px;
+    width: 275px;
+    padding: 5% 5%;
     overflow: auto; 
 }
-
+/* 
 ::-webkit-scrollbar{
-    width: 2vw;
+    width: 1.5vw;
     height: 50%;
     max-height: 50%;
     flex-direction: column;
@@ -54,7 +58,7 @@
     /* width: 2em;
     height: 50%;
     max-height: 50%; */
-}
+/* }
 :-webkit-scrollbar{
     background: #81903a;
 }
@@ -64,55 +68,55 @@
     
 }
 ::-webkit-scrollbar-button{
-    height: 50px;
-    width: 50px;
-}
+    height: 10%;
+    width: 10%; 
+} */
 #yearbox{
     justify-content: center;
     text-align: center;
     align-self: center;
     margin: 2%;
-    padding-left: 40%;
-    padding-right: 35%;
+    padding-left: 20%;
+    padding-right: 38%;
     
 }
 #year{
     justify-content: center;
     text-align: center;
-    padding: 5px;
+    padding: 5%;
     font-size: 18px;
     border-radius: 50px;
     border: 1px solid #81903a;
-    width: 50px;
+    width: 150%;
     font-family:Manrope;
     color: #81903a;
 
 }
-#date{
+#date-detail{
     justify-content: center;
     text-align: center;
-    padding: 5px;
-    font-size: 26px;
+    padding: 0%;
+    font-size: 20px;
     font-family:Manrope;
     color: #81903a;
 }
 #headline{
     background: #f8ffc865;
-    backdrop-filter: blur(5.5px);
-    -webkit-backdrop-filter: blur(5.5px);
+    /* backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px); */
     border-radius: 12px;
     justify-content: center;
     align-content: center;
     box-shadow: 0 1px 5px #c8c9a5;
-    height: 50px;
-    width: 250px;
-    flex-basis: 250px;
+    height: 5%;
+    width: 100%;
+    /* flex-basis: 250px; */
     color: hsl(90, 73%, 29%);
     font-size: 28px;
     font-family: Manrope;
-    padding: 7px;
+    padding: 1%;
     text-align: center;
-    margin: 5% 0;
+    margin: 3% 0;
 }
 #taskbox{
     justify-content: center;
@@ -120,17 +124,20 @@
     background: #e1e6e1;
     border-radius: 12px;
     margin: 5% 0 ;
-    padding: 5px;
+    padding: 3.5%;
+    width: 85%;
+    height: 50%;
+    margin-left: 8%;
 }
 #title{
     display: flex;
     justify-content: left;
     text-align: left;
-    padding: 5px;
+    padding: 2%;
     background: rgba(248, 250, 236, 0.499);
     border-radius: 16px;
-    width: 190px;
-    height: 40px;
+    width: 80%;
+    height: 25%;
 }
 #dot{
     height: 12.5px;
@@ -143,7 +150,7 @@
 }
 #texttitle{
     display: inline-block;
-    padding: 1px;
+    padding: 2%;
     margin-left: 2%;
     font-family: Manrope;
     font-size: 14px;
@@ -158,31 +165,39 @@
 }
 #detail{
     margin: 1%;
-    padding: 2px;
+    padding: 2%;
+    justify-content: left;
+    align-content: baseline;
+    flex-direction: column;
 
 }
 #detailnote{
-    display: flex;
+    display: inline-block;
+    justify-content: left;
+    align-content: left;
+    text-align: left;
+    width: 100%;
 }
 #notetitle{
-    font-size: 12px;
+    font-size: 14px;
     font-family: Manrope;
     margin: 0%;
-    display: inline-block;
+    display: inline-flex;
 }
 #note{
     background: rgba(248, 250, 236, 0.499);
     border-radius: 16px;
-    display: inline-block;
-    font-size: 10px;
+    display: inline-flex;
+    font-size: 14px;
     padding: 2.5px;
+    font-family: Manrope;
 
 }
 #memberline{
     display : inline-block;
 }
 #parttitle{
-    font-size: 12px;
+    font-size: 14px;
     font-family: Manrope;
     margin: 0%;
     display : inline-block;
@@ -192,17 +207,17 @@
     background: rgba(248, 250, 236, 0.499);
     border-radius: 16px;
     text-align: left;
-    font-size: 12px;
+    font-size: 14px;
     font-family: Manrope;
     margin: 1%;
     align-items:first baseline;
     display : inline-block;
 }
 #others{
-    font-size: 12px;
+    font-size: 12.5px;
     font-family: Manrope;
     margin: 0%;
-    margin-left: 60px;
+    margin-left: 38%;
 }
 
 #contain-button{
@@ -210,6 +225,7 @@
     align-content: right;
 }
 #close-button{
+    margin-left: 80%;
     background-color: hsl(357, 75%, 35%);
     border-radius: 50px;
     height: 25px;
@@ -225,7 +241,7 @@
     color: #FFFFFF;
 }
 #delete-event{
-    text-align: right;
+    text-align:center;
     justify-content: flex-end;
     align-self: right;
     border-radius: 12px;
@@ -234,9 +250,9 @@
     font-size: 12px;
     color:#ffffff;
     background-color: #9a4b4b;
-    margin-left: 75%;
+    margin-left: 60%;
     display: inline-block;
-    padding: 2px;
+    padding: 2%;
 }
 #delete-event:hover{
     text-align: right;
@@ -250,5 +266,5 @@
     background-color: hsl(356, 97%, 24%);
     margin-left: 150px;
     display: inline-block;
-    padding: 2px;
+    padding: 2%;
 }

@@ -37,18 +37,20 @@ body{
     color: #000000;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
-    background: #e8ff56;
+    /* background: #e8ff56; */
     border: 1px solid #fafede;
-    flex-basis: 200px;
+    /* flex-basis: 200px; */
     height: 660px;
     width: 300px;
-    padding: 30px 20px 0px 20px;
+    padding: 30px 20px 0px 50px;
     opacity: 0.8;
     overflow: auto;
+    align-content: center;
+    justify-content: center;
  
 }
 ::-webkit-scrollbar{
-    width: 1.5vw;
+    width: 1vw;
     height: 50%;
     max-height: 50%;
     flex-direction: column;
@@ -77,18 +79,18 @@ body{
     width: 50px;
 }
 
-#headline{
-    background: #f8ffc8;
+#headline-filter{
+    background-color: #fdffee;
     border-radius: 12px;
     justify-content: center;
-    /* box-shadow: 0 1px 5px #c8c9a5; */
+    box-shadow: 0 1px 5px #c8c9a5;
     height: 25px;
     width: 200px;
-    flex-basis: 250px;
+    /* flex-basis: 250px; */
     color: hsl(97, 21%, 19%);
     font-size: 18px;
     font-family: Manrope;
-    padding: 1px;
+    padding: 1%;
     text-align: center;
     align-content: center;
 }
@@ -97,13 +99,13 @@ body{
     font-size: 18px;
     font-family: Manrope;
     text-align: center;
-    padding-top: 2%;
+    /* padding-top: 2%; */
 }
 #eachrow{
     display: flex;
     justify-content: left;
     margin: 8% 0;
-    padding: 4px 1px;
+    padding: 1% 1%;
 }
 #checkbox{
     background: #f8ffc8;
@@ -113,6 +115,7 @@ body{
     width: 20px;
     justify-content: center;
     margin : 0 2%;
+    color: hsl(97, 21%, 19%);
 }
 #checkbox:hover{
     background: #cad677;
@@ -137,7 +140,7 @@ body{
     font-size: 16px;
     font-family:Manrope;
 }
-#dot{
+#dot-filter{
     height: 12.5px;
     width: 12.5px;
     background-color: rgb(1, 120, 32);

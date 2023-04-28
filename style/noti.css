@@ -37,7 +37,7 @@ body{
     padding: 30px 20px;
     overflow: auto; 
 }
-
+/* 
 ::-webkit-scrollbar{
     width: 1.5vw;
     height: 50%;
@@ -54,19 +54,19 @@ body{
     /* width: 2em;
     height: 50%;
     max-height: 50%; */
-}
-:-webkit-scrollbar{
+/* } */
+/* :-webkit-scrollbar{
     background: #81903a;
 }
 ::-webkit-scrollbar-thumb{
     background: #e1e6e1;
     border-radius: 12px;
     
-}
-::-webkit-scrollbar-button{
+} */
+/* ::-webkit-scrollbar-button{
     height: 50px;
     width: 50px;
-}
+} */ */
 
 #headline-noti{
     border: 2px;

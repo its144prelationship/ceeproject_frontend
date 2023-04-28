@@ -194,7 +194,6 @@ function load() {
         const clickDate = dayString.split('/')[2]+'-'+dayString.split('/')[0]+'-'+dayString.split('/')[1];
         const containdetail = document.getElementById('det');
         if(containdetail.children.length === 1){
-          console.log("we")
           closeDetailBar();
           deleteFilterBar();
           const mon = [" ", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
@@ -203,7 +202,6 @@ function load() {
           detailon = true;
         }
         else{
-          console.log("hija")
           deleteFilterBar();
           // showDetail(date, currentday, currentmonth, currentyear, currentdate);
           const mon = [" ", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];

@@ -53,7 +53,7 @@ function showList() { //show each chechlist
     containfilter.appendChild(filterbar);
     //create headline
     const headline = document.createElement('section');
-    headline.id = "headline";
+    headline.id = "headline-filter";
     filterbar.appendChild(headline);
     //add title
     const title = document.createElement('p');
@@ -134,7 +134,7 @@ function addList(category){
     const dot_filter = document.createElement('span');
     dot_filter.id = "dot-filter"
     dot_filter.style.backgroundColor = myCategory[category];
-    eachrow.appendChild(subject,dot_filter);
+    eachrow.append(dot_filter,subject);
 }
 
 
