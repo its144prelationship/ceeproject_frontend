@@ -351,7 +351,13 @@ eventinvite.addEventListener('keypress', function (event) {
   }
 });
 
+const setHeight = () => {
+  const currentHeight = window.innerHeight;
+  const currentWidth = window.currentWidth;
+  document.body.style.height = `${currentHeight}px`;
+  document.body.style.width = `${currentWidth}px`;
+}
+window.addEventListener("resize",setHeight);
 initEventDropdown();
 initButtons();
 load();
-

@@ -71,11 +71,11 @@ body{
 .username{
     font-size: 18px;
     font-family: Manrope;
-    padding: 1px;
-    margin: 0%;
+    padding-left: 10px;
+    margin: 0% 5%;
     padding-left: 10px;
     color: hsl(97, 23%, 35%);
-    display: inline-block;
+    /* display: inline-block; */
 }
 .logout{
     background-color: hsl(97, 23%, 35%);

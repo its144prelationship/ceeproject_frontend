@@ -12,13 +12,20 @@ html{
 }
 body{
     background-color: #EAF4CF;
-    align-items: center;
+    /* align-items: center; */
     /* display: flex; */
     font-family: 'Dosis',sans-serif;
     font-display: swap;
     height: inherit;
     /* justify-content: right; */
     /* padding: 50px; */
+}
+#contain-filter{
+    height: 660px;
+    width: 300px;
+    /* flex-wrap: wrap; */
+    margin-top: 0px;
+    margin-left: 0%;
 }
 #filterbar{
     backdrop-filter: blur(5.5px);
@@ -34,10 +41,11 @@ body{
     border: 1px solid #fafede;
     flex-basis: 200px;
     height: 660px;
-    width: 250px;
-    padding: 30px 20px;
+    width: 300px;
+    padding: 30px 20px 0px 50px;
     opacity: 0.8;
     overflow: auto;
+ 
 }
 ::-webkit-scrollbar{
     width: 1.5vw;
@@ -73,7 +81,7 @@ body{
     background: #f8ffc8;
     border-radius: 12px;
     justify-content: center;
-    box-shadow: 0 1px 5px #c8c9a5;
+    /* box-shadow: 0 1px 5px #c8c9a5; */
     height: 25px;
     width: 200px;
     flex-basis: 250px;
@@ -82,11 +90,13 @@ body{
     font-family: Manrope;
     padding: 1px;
     text-align: center;
+    align-content: center;
 }
 #title{
     color: hsl(97, 21%, 19%);
     font-size: 18px;
     font-family: Manrope;
+    text-align: center;
 }
 #eachrow{
     display: flex;

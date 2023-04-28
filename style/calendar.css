@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Megrim:wght@400;500;600&display=swap');
+/* html{
+  height: -webkit-fill-available;
+} */
 body {
   display: inline;
   /* margin-top: 50px; */
   justify-content: center;
   background-color: #EAF4CF;
   margin: 0px 0px 0px 0px;
+  /* height: -webkit-fill-available; */
 }
 button {
   width: 75px;
@@ -41,8 +45,19 @@ button {
 #header button:hover {
   color: #01a771;
 }
+#displaypane{
+  display: inline-flex;
+  align-content: baseline;
+  justify-content: baseline;
+  padding: 0 0 0 10%;
+}
+#space{
+  width: 80px;
+}
 #container {
   width: 770px;
+  /* display: inline-block; */
+  align-items: baseline;
 }
 #weekdays {
   width: 100%;
@@ -51,9 +66,10 @@ button {
   font-family: 'Megrim';
   font-weight: bold;
   color: #36432A;
+  padding-right: 4px;
 }
 #sun, #mon, #tue, #wed, #thu, #fri, #sat {
-  height: 20px;
+  height: 40px;
   font-size: 18px;
   display: flex;
   justify-content: space-evenly;

@@ -115,11 +115,11 @@ function addNoti(invite){
     const accept_button = document.createElement('button');
     accept_button.id = "accept-button";
     accept_button.innerText = "Accept";
-    accept_button.addEventListener("click",acceptHandler);
+    //accept_button.addEventListener("click",acceptHandler(invite));
     const reject_button = document.createElement('button');
     reject_button.id = "reject-button";
     reject_button.innerText = "Reject";
-    reject_button.addEventListener("click",rejectHandler);
+    //reject_button.addEventListener("click",rejectHandler(invite));
     responsebox.append(accept_button,reject_button);
     //add all
     invitebox.append(message,eventname_invite,datebox,timebox,responsebox);
@@ -152,14 +152,14 @@ const deleteNoti = async(eventId) => {
 }
 
 function acceptHandler(invite){
-    acceptREQ(invite);
-    deleteNoti(invite.eventId);
+    //acceptREQ(invite);
+    //deleteNoti(invite.eventId);
     closeNotibar();
     showNoti();
 }
 
 function rejectHandler(invite){
-    deleteNoti(invite.eventId);
+    //deleteNoti(invite.eventId);
     closeNotibar();
     showNoti();
 }
