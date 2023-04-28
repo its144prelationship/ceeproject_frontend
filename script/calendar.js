@@ -21,6 +21,7 @@ var colorEvent = ['#5C1999','#0097B2','#4256B2','#216B39','#67AB3D',
 
 //event info
 var eventName, eventStartTime, eventEndTime, eventCategory, eventDetail, eventFriend, eventDate;
+var detailon = false;
 
 //time
 const hrfirst0 = document.getElementById('hrfirst0');
@@ -47,7 +48,7 @@ const showFriendList = document.getElementById('friendname');
 
 const event1 = {"starttime":{"hour":"13","min":"45"} , "endtime":{"hour":"14","min":"00"} , "eventname":"QUIZ PROGLANG" , "category":{"subject":"Prog Lang","color":"#0097B2"} , "creator":"Kim Taerae" , "detail":"taeraetaerae" , "member":["ung","pp","meow"] , "eventid":"12345"};
 const event2 = {"starttime":{"hour":"10","min":"20"} , "endtime":{"hour":"24","min":"60"} , "eventname":"Meeing CEE" , "category":{"subject":"COM ENG ESS","color":"#216B39"} , "creator":"Kim Taerae" , "detail":"cupid is dump" , "member":["ung"] , "eventid":"12346"};
-const myCalendar = {"2023-04-19":[event1,event2,event2,event2,event2,event2]}
+const myCalendar = {"2023-4-19":[event1,event2,event2,event2,event2,event2]}
 
 function initializeEventInfo(){
   eventName = '';
@@ -78,23 +79,36 @@ function openModal(date) {
   eventdetail.value = '';
   eventinvite.value = '';
 }
-function showTaskbox(event){
-	$.getScript("detail.js", function(){
- 		document.write(showDetail(date));
-	});
-}
+// function showTaskbox(event){
+// 	$.getScript("detail.js", function(){
+//  		document.write(showTaskbox(event));
+// 	});
+// }
 
-function showDetail(date, currentday, currentmonth, currentyear, currentdate){
-	$.getScript("detail.js", function(){
- 		document.write(showDetail(date, currentday, currentmonth, currentyear, currentdate));
-	});
-}
+// function showDetail(date, currentday, currentmonth, currentyear, currentdate){
+// 	$.getScript("detail.js", function(){
+//  		document.write(showDetail(date, currentday, currentmonth, currentyear, currentdate));
+// 	});
+// }
 
-function deleteFilterBar(){
-	$.getScript("filter.js", function(){
- 		document.write(deleteFilterBar());
-	});
-}
+
+// function closeDetailBar(){
+//   $.getScript("detail.js", function(){
+//     document.write(closeDetailBar());
+//   });
+// }
+
+// function deleteFilterBar(){
+//   $.getScript("filter.js", function(){
+//       document.write(deleteFilterBar());
+//   });
+// }
+
+// function showNoti(){
+//   $.getScript("noti.js", function(){
+//       document.write(showNoti());
+//   });
+// }
 
 function load() {
   const dt = new Date();
@@ -177,12 +191,28 @@ function load() {
       // });
 
       daySquare.addEventListener('click', () => {
-        deleteFilterBar();
+        const clickDate = dayString.split('/')[2]+'-'+dayString.split('/')[0]+'-'+dayString.split('/')[1];
+        const containdetail = document.getElementById('det');
+        if(containdetail.children.length === 1){
+          console.log("we")
+          closeDetailBar();
+          deleteFilterBar();
+          const mon = [" ", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+          const d = ['SAT', 'SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI'];
+          showDetail(clickDate, d[(paddingDays+Number(dayString.split('/')[1]))%7], mon[dayString.split('/')[0]], dayString.split('/')[2], dayString.split('/')[1]);
+          detailon = true;
+        }
+        else{
+          console.log("hija")
+          deleteFilterBar();
+          // showDetail(date, currentday, currentmonth, currentyear, currentdate);
+          const mon = [" ", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+          const d = ['SAT', 'SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI'];
+          showDetail(clickDate, d[(paddingDays+Number(dayString.split('/')[1]))%7], mon[dayString.split('/')[0]], dayString.split('/')[2], dayString.split('/')[1]);
+          detailon = false;
+        }
 
-        // showDetail(date, currentday, currentmonth, currentyear, currentdate);
-        const mon = [" ", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-        const d = ['SAT', 'SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI'];
-        showDetail(dayString2, d[(paddingDays+Number(dayString.split('/')[1]))%7], mon[dayString.split('/')[0]], dayString.split('/')[2], dayString.split('/')[1]);
+
       });
 
       daySquare.addEventListener('mouseenter', () => {
@@ -216,7 +246,6 @@ function load() {
     }
 
     calendar.appendChild(daySquare);    
-
   }
 }
 
@@ -389,6 +418,10 @@ const setHeight = () => {
   document.body.style.height = `${currentHeight}px`;
   document.body.style.width = `${currentWidth}px`;
 }
+
+// const noti = document.getElementById('noti-icon');
+// noti.addEventListener("click",showNoti());
+
 window.addEventListener("resize",setHeight);
 initEventDropdown();
 initButtons();

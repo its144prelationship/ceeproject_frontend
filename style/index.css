@@ -108,7 +108,7 @@ body{
     margin-left: 40%;
 }
 
-.noti-icon{
+#noti-icon{
     height: 50px;
     width: 50px;
     display:block;

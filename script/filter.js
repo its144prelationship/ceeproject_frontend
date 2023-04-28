@@ -11,7 +11,7 @@ var currentyear;
 var currentdate;
 var currentday;
 var mySelectList;
-const containfilter = document.getElementById('contain-filter');
+// const containfilter = document.getElementById('contain-filter');
 const Color = ["#5C1999","#0097B2","#4256B2","#216B39","#67AB3D","#FFFD61","#FFAE34","#C45454","#DDD8D8","#62462C","#9B8809","#FFA6F9","#F48F6A","#A8E0FF","#FFFFFF"]
 
 const getInfo = async () => { //fetch from backend 
@@ -41,6 +41,12 @@ function mapColor(){
 }
 
 function showList() { //show each chechlist
+    const containfilter = document.getElementById('contain-filter');
+    if(containfilter.children.length > 1){return;}
+    else if (containfilter.children.length == 1){
+        containfilter.style.display = "block";
+        return;
+    }
     //init filterbar
     const filterbar = document.createElement('div');
     filterbar.id = "filterbar";
@@ -51,7 +57,7 @@ function showList() { //show each chechlist
     filterbar.appendChild(headline);
     //add title
     const title = document.createElement('p');
-    title.id = "title";
+    title.id = "title-filter";
     title.innerText = "Filter your calendar !"
     headline.appendChild(title);
     //init all 
@@ -133,8 +139,15 @@ function addList(category){
 
 
 function deleteFilterBar() {
+    var containfilter = document.getElementById('contain-filter');
     const filterbar = document.getElementById("filterbar");
-    containfilter.remove(filterbar);
+    containfilter.style.display = "none";
+    // containfilter.remove(filterbar);
+
+    // const box = document.querySelectorAll('#contain-filter #filterbar');
+    //     box.forEach(box => {
+    //         containfilter.remove(box);
+    // })
 }
 
 function applyFilter(category){
@@ -187,6 +200,4 @@ function removeFilter(category){
     }
     filCalendar = temp;
 }
-
-
 showList();

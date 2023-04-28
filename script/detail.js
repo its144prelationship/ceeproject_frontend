@@ -1,3 +1,4 @@
+
 var student_name;
 var student_id;
 var user_ID;
@@ -9,15 +10,34 @@ var myCourse;
 // var currentdate = 19;
 var myselection;
 var today;
-const det = document.getElementById('det');
+// const det = document.getElementById('det');
 
 // const event1 = {"starttime":{"hour":"13","min":"45"} , "endtime":{"hour":"14","min":"00"} , "eventname":"QUIZ PROGLANG" , "category":{"subject":"Prog Lang","color":"#0097B2"} , "creator":"Kim Taerae" , "detail":"taeraetaerae" , "member":["ung","pp","meow"] , "eventid":"12345"};
 // const event2 = {"starttime":{"hour":"10","min":"20"} , "endtime":{"hour":"24","min":"60"} , "eventname":"Meeing CEE" , "category":{"subject":"COM ENG ESS","color":"#216B39"} , "creator":"Kim Taerae" , "detail":"cupid is dump" , "member":["ung"] , "eventid":"12346"};
 // const myCalendar = {"2023-04-19":[event1,event2,event2,event2,event2,event2]}
 
+// function showList(){
+//   $.getScript("filter.js", function(){
+//         document.write(showList());
+//   });
+// }
+
+// function addList(category){
+//     $.getScript("filter.js", function(){
+//         document.write(addList(category));
+//     });
+// }
+
+// function deleteFilterBar(){
+//     $.getScript("filter.js", function(){
+//         document.write(deleteFilterBar());
+//     });
+// }
+
 function showDetail(date, currentday, currentmonth, currentyear, currentdate){
     today = date;
     //create detail bar and initialize headline
+    const det = document.getElementById('det');
     const detailbar = document.createElement('div');
     detailbar.id = "detailbar";
     det.appendChild(detailbar);
@@ -49,7 +69,10 @@ function showDetail(date, currentday, currentmonth, currentyear, currentdate){
     detailbar.appendChild(selection);
     myselection = selection;
     //map all the event in that day into detailbar
-    myCalendar[date].map(showTaskbox);
+    // myCalendar[date].map(showTaskbox(myCalendar[date]));
+    myCalendar[date].forEach(element => {
+        showTaskbox(element);
+    });
 
 };
 // event = {starttime:{hour:__,min:__},endtime:{hour:__,min:__},
@@ -137,9 +160,12 @@ function showTaskbox(event){
     taskbox.appendChild(deletebutton)
 }
 
+
 function closeDetailBar(){
+    const det = document.getElementById('det');
     const detailbar = document.getElementById("detailbar");
-    detailbar.remove();
+    det.removeChild(detailbar);
+    showList();
 }
 
 function deleteEventHandler(eventId){

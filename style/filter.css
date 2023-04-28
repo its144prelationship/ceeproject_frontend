@@ -42,7 +42,7 @@ body{
     flex-basis: 200px;
     height: 660px;
     width: 300px;
-    padding: 30px 20px 0px 50px;
+    padding: 30px 20px 0px 20px;
     opacity: 0.8;
     overflow: auto;
  
@@ -92,11 +92,12 @@ body{
     text-align: center;
     align-content: center;
 }
-#title{
+#title-filter{
     color: hsl(97, 21%, 19%);
     font-size: 18px;
     font-family: Manrope;
     text-align: center;
+    padding-top: 2%;
 }
 #eachrow{
     display: flex;

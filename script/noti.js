@@ -40,16 +40,18 @@ function showNoti() {
     notibar.appendChild(closebutton);
     //init headline box title + ​logo
     const headline = document.createElement('div');
-    headline.id = "headline";
+    headline.id = "headline-noti";
     notibar.appendChild(headline);
     //title-box
     const titlebox = document.createElement('div');
     titlebox.id = "titlebox";
     const title = document.createElement('p');
-    title.id = "title";
+    title.id = "title-noti";
     title.innerText = "Notification";
     titlebox.appendChild(title)
     //add logo
+    const notipress = document.createElement('button');
+    notipress.id = ""
     const noti_logo = document.createElement('img');
     noti_logo.id = "noti-logo";
     noti_logo.src = "../image/noti-icon.png";
@@ -164,4 +166,3 @@ function rejectHandler(invite){
     showNoti();
 }
 
-showNoti();
