@@ -64,6 +64,7 @@ function openModal(date) {
   newEventModal.querySelector('#categories #categoriesdropdown #dropbtn').innerHTML = '--- Categories Selection ---';
   newEventModal.querySelector('#categories #categoriesdropdown #dropbtn').style.color = '#A8A8A8';
   eventColor.style.backgroundColor = '#FFC700';
+  eventTitleInput.value = '';
   hrfirst0.value = hrfirst1.value = minfirst0.value = minfirst1.value = '';
   hrlast0.value = hrlast1.value = minlast0.value = minlast1.value = '';
   eventdetail.value = '';
@@ -328,6 +329,10 @@ eventinvite.addEventListener('keypress', function (event) {
       showFriendList.appendChild(finv);
 
       eventinvite.value = '';
+
+      const h = Math.max(Number(document.getElementById("newEventModal").clientHeight), Number(document.getElementById("container").clientHeight));
+      // console.log(String(h+60)+'px');
+      document.getElementById("modalBackDrop").style.height = String(h + 60)+'px';
 
       fclose.addEventListener('mouseenter', () => {
         fclose.style.color = '#FFFFFF';

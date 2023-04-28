@@ -6,14 +6,29 @@
     <title>Time Plant</title>
 
     <link rel="stylesheet" href="../style/calendar.css">
+    <link rel="stylesheet" href="../style/index.css">
   </head>
   <body>
-    
-    <div id="container">
-      <div id="header">
-        <button id="backButton"><</button>
-        <div id="monthDisplay"></div>
-        <button id="nextButton">></button>
+    <div class="headertimeplant">
+      <div class="userinfo">
+          <img class="profile" src="profile/IMG_8410.JPG" alt="Your Profile Pic">
+          <p class="userid">653XXXXX21</p>
+          <p class="username">Snowball hihi</p>
+          <button class="logout">LOGOUT</button>
+      </div>
+      <div class="logo">
+          <img class="logopic" src="../image/logo_TimePlant.png" alt="TimePlant">
+      </div>
+      <div class="noti">
+          <img class="noti-icon" src="../image/noti-icon.png" alt="Notification">
+      </div>
+
+    </div>
+      <div id="container">
+        <div id="header">
+          <button id="backButton"><</button>
+          <div id="monthDisplay"></div>
+          <button id="nextButton">></button>
       </div>
 
       <div id="weekdays">
@@ -87,5 +102,6 @@
     <div id="modalBackDrop"></div>
 
     <script src="../script/calendar.js"></script>
+    <script src="../script/script.js"></script>
   </body>
 </html>

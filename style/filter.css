@@ -13,12 +13,12 @@ html{
 body{
     background-color: #EAF4CF;
     align-items: center;
-    display: flex;
+    /* display: flex; */
     font-family: 'Dosis',sans-serif;
     font-display: swap;
     height: inherit;
-    justify-content: right;
-    padding: 50px;
+    /* justify-content: right; */
+    /* padding: 50px; */
 }
 #filterbar{
     backdrop-filter: blur(5.5px);
