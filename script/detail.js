@@ -3,19 +3,19 @@ var student_id;
 var user_ID;
 // var myCalendar;
 var myCourse;
-var currentday = "TUE";
-var currentmonth = "APR";
-var currentyear = 2023;
-var currentdate = 19;
+// var currentday = "TUE";
+// var currentmonth = "APR";
+// var currentyear = 2023;
+// var currentdate = 19;
 var myselection;
 var today;
 const det = document.getElementById('det');
 
-const event1 = {"starttime":{"hour":"13","min":"45"} , "endtime":{"hour":"14","min":"00"} , "eventname":"QUIZ PROGLANG" , "category":{"subject":"Prog Lang","color":"#0097B2"} , "creator":"Kim Taerae" , "detail":"taeraetaerae" , "member":["ung","pp","meow"] , "eventid":"12345"};
-const event2 = {"starttime":{"hour":"10","min":"20"} , "endtime":{"hour":"24","min":"60"} , "eventname":"Meeing CEE" , "category":{"subject":"COM ENG ESS","color":"#216B39"} , "creator":"Kim Taerae" , "detail":"cupid is dump" , "member":["ung"] , "eventid":"12346"};
-const myCalendar = {"2023-04-19":[event1,event2,event2,event2,event2,event2]}
+// const event1 = {"starttime":{"hour":"13","min":"45"} , "endtime":{"hour":"14","min":"00"} , "eventname":"QUIZ PROGLANG" , "category":{"subject":"Prog Lang","color":"#0097B2"} , "creator":"Kim Taerae" , "detail":"taeraetaerae" , "member":["ung","pp","meow"] , "eventid":"12345"};
+// const event2 = {"starttime":{"hour":"10","min":"20"} , "endtime":{"hour":"24","min":"60"} , "eventname":"Meeing CEE" , "category":{"subject":"COM ENG ESS","color":"#216B39"} , "creator":"Kim Taerae" , "detail":"cupid is dump" , "member":["ung"] , "eventid":"12346"};
+// const myCalendar = {"2023-04-19":[event1,event2,event2,event2,event2,event2]}
 
-function showDetail(date){
+function showDetail(date, currentday, currentmonth, currentyear, currentdate){
     today = date;
     //create detail bar and initialize headline
     const detailbar = document.createElement('div');
@@ -165,8 +165,8 @@ const deleteEvent = async (eventId) => {
     };
     await fetch(`http://${backendIPAddress}/${eventId}`,options);
 };
-console.log("test");
-showDetail("2023-04-19");
+// console.log("test");
+// showDetail("2023-04-19");
 
 
 // export

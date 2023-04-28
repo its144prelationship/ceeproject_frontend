@@ -1,32 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Time Plant</title>
 
-    <link rel="stylesheet" href="../style/calendar.css">
-    <link rel="stylesheet" href="../style/index.css">
-    <link rel="stylesheet" href="../style/filter.css">
-    <link rel="stylesheet" href="../style/detail.css">
+    <link rel="stylesheet" href="../style/calendar.css" />
+    <link rel="stylesheet" href="../style/index.css" />
+    <link rel="stylesheet" href="../style/filter.css" />
+    <link rel="stylesheet" href="../style/detail.css" />
   </head>
   <body>
     <div class="headertimeplant">
       <div class="userinfo">
-          <img class="profile" src="profile/IMG_8410.JPG" alt="Your Profile Pic">
-          <p class="userid">653XXXXX21</p>
-          <p class="username">Snowball hihi</p>
-          <button class="logout">LOGOUT</button>
+        <img
+          class="profile"
+          src="profile/IMG_8410.JPG"
+          alt="Your Profile Pic"
+        />
+        <p class="userid">653XXXXX21</p>
+        <p class="username">Snowball hihi</p>
+        <button class="logout">LOGOUT</button>
       </div>
       <div class="logo">
-          <img class="logopic" src="../image/logo_TimePlant.png" alt="TimePlant">
+        <img
+          class="logopic"
+          src="../image/logo_TimePlant.png"
+          alt="TimePlant"
+        />
       </div>
       <div class="noti">
-          <img class="noti-icon" src="../image/noti-icon.png" alt="Notification">
+        <img
+          class="noti-icon"
+          src="../image/noti-icon.png"
+          alt="Notification"
+        />
       </div>
-
     </div>
-      <div id="displaypane">
+    <div id="displaypane">
       <div id="container">
         <div id="header">
           <button id="backButton"><</button>
@@ -34,68 +45,72 @@
           <button id="nextButton">></button>
         </div>
 
-      <div id="weekdays">
-        <div id="sun">SUN</div> 
-        <div id="mon">MON</div> 
-        <div id="tue">TUE</div> 
-        <div id="wed">WED</div> 
-        <div id="thu">THU</div> 
-        <div id="fri">FRI</div> 
-        <div id="sat">SAT</div>
-      </div>
+        <div id="weekdays">
+          <div id="sun">SUN</div>
+          <div id="mon">MON</div>
+          <div id="tue">TUE</div>
+          <div id="wed">WED</div>
+          <div id="thu">THU</div>
+          <div id="fri">FRI</div>
+          <div id="sat">SAT</div>
+        </div>
 
-      <div id="calendar"></div>
+        <div id="calendar"></div>
+      </div>
+      <div id="space"></div>
+      <div id="contain-filter"></div>
+      <div id="det"></div>
     </div>
-    <div id="space"></div>
-    <div id="contain-filter"></div>
-     </div>
     <div id="newEventModal">
       <div id="dateevent">Wednesday, 26th April 2023</div>
       <div id="eventTitle">
-        <div id="eventColor"> </div>
-        <input type="text" id="eventTitleInput" placeholder="EVENT NAME">
+        <div id="eventColor"></div>
+        <input type="text" id="eventTitleInput" placeholder="EVENT NAME" />
       </div>
       <div id="eventTime">
-        <div>TIME : </div>
-        <input type="text" id="hrfirst0" placeholder="0">
-        <input type="text" id="hrfirst1" placeholder="8">
-        <img src="../image/activecolon.png" id="activecolon">
-        <input type="text" id="minfirst0" placeholder="0">
-        <input type="text" id="minfirst1" placeholder="0">
-        <img src="../image/arrow.png" id="arrow">
-        <input type="text" id="hrlast0">
-        <input type="text" id="hrlast1">
-        <img src="../image/inactivecolon.png" id="inactivecolon">
-        <input type="text" id="minlast0">
-        <input type="text" id="minlast1">
+        <div>TIME :</div>
+        <input type="text" id="hrfirst0" placeholder="0" />
+        <input type="text" id="hrfirst1" placeholder="8" />
+        <img src="../image/activecolon.png" id="activecolon" />
+        <input type="text" id="minfirst0" placeholder="0" />
+        <input type="text" id="minfirst1" placeholder="0" />
+        <img src="../image/arrow.png" id="arrow" />
+        <input type="text" id="hrlast0" />
+        <input type="text" id="hrlast1" />
+        <img src="../image/inactivecolon.png" id="inactivecolon" />
+        <input type="text" id="minlast0" />
+        <input type="text" id="minlast1" />
       </div>
 
       <div id="categories">
-        <div>CATEGORIES : </div>
+        <div>CATEGORIES :</div>
         <div id="categoriesdropdown">
           <button id="dropbtn">--- Categories Selection ---</button>
           <div id="categoriescontent"></div>
         </div>
-    </div>
+      </div>
 
       <div id="detail">
-          <div>DETAILS : </div>
-          <textarea id="eventdetail"></textarea>
+        <div>DETAILS :</div>
+        <textarea id="eventdetail"></textarea>
       </div>
 
       <div id="invite">
-          <div>INVITE YOUR FRIENDS :</div>
-          <div id="inputfriendname">
-            <div id="friendname">
-              <!-- <div id="onefriendname">
+        <div>INVITE YOUR FRIENDS :</div>
+        <div id="inputfriendname">
+          <div id="friendname">
+            <!-- <div id="onefriendname">
                 <div id="onefriendname1">Lee Jeno</div>
                 <button id="onefriendname2">x</button>
               </div> -->
-            </div>
-            <input type="text" id="eventinvite">
           </div>
+          <input type="text" id="eventinvite" />
+        </div>
       </div>
-      <div id="inviteexplain"> To add your friends name, press 'ENTER' on your keyboard.<br>To remove your friends name, click 'x' button behide the name.</div>
+      <div id="inviteexplain">
+        To add your friends name, press 'ENTER' on your keyboard.<br />To remove
+        your friends name, click 'x' button behide the name.
+      </div>
 
       <div id="allbuttonevent">
         <button id="saveButton">CREATE</button>
