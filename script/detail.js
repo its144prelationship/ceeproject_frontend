@@ -168,3 +168,7 @@ const deleteEvent = async (eventId) => {
 console.log("test");
 showDetail("2023-04-19");
 
+
+// export
+// export { showDetail };
+

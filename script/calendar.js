@@ -1,3 +1,6 @@
+//import
+// import { showDetail } from './detail.js';
+
 let nav = 0;
 let clicked = null;
 
@@ -69,6 +72,12 @@ function openModal(date) {
   hrlast0.value = hrlast1.value = minlast0.value = minlast1.value = '';
   eventdetail.value = '';
   eventinvite.value = '';
+}
+
+function showDetail(date){
+	$.getScript("detail.js", function(){
+ 		document.write(showDetail(date));
+	});
 }
 
 function load() {
@@ -151,7 +160,7 @@ function load() {
       //   
       // });
 
-      // daySquare.addEventListener('click', () => openModal(dayString));
+      daySquare.addEventListener('click', () => showDetail(dayString2));
 
       daySquare.addEventListener('mouseenter', () => {
         const addEventButton = daySquare.querySelector('#calVal #addEvent');

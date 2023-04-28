@@ -1,7 +1,7 @@
-html{
+/* html{
     box-sizing: border-box;
     height: 100%;
-}
+} */
 *,
 *::before,
 *::after{
@@ -9,7 +9,7 @@ html{
     margin: 0;
     padding: 0;
 }
-body{
+#detailbody{
     background-color: #EAF4CF;
     align-items: center;
     display: flex;
