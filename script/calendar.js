@@ -414,9 +414,31 @@ const setHeight = () => {
   document.body.style.width = `${currentWidth}px`;
 }
 
-// const noti = document.getElementById('noti-icon');
-// noti.addEventListener("click",showNoti());
+function seemore(){
+  //get rid of det/contain
+  const displaypane = document.getElementById('displaypane');
+  const containfilter = document.getElementById('contain-filter');
+  if('contain-filter'in displaypane.children){
+    displaypane.removeChild(containfilter);
+  }
+  // displaypane.removeChild(containfilter);
+  const modal = document.getElementById('modalBackDrop');
+  modal.style.display = "block";
+  const box = document.getElementById('contain-filter')
+  box.style.display = "block";
+  //add close button
+  const closebutton = document.getElementById('close-button-overlay');
+  closebutton.addEventListener('click',closeOverlay);
+  showList();
+}
 
+function closeOverlay(){
+  const modal = document.getElementById('modalBackDrop');
+  modal.style.display = "none";
+}
+
+const seemorebutton = document.getElementById('folded');
+seemorebutton.addEventListener("click",seemore);
 window.addEventListener("resize",setHeight);
 initEventDropdown();
 initButtons();

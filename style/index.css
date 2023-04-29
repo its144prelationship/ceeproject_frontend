@@ -141,6 +141,16 @@ body{
     justify-content: center;
     align-content: center;
 }
+#folded{
+    background-color: #cdcfc9;
+    border-radius: 50px;
+    height: 30px;
+    width: 30px;
+    font-size: 20px;
+    justify-content: center;
+    align-self: center;
+    display: none;
+}
 @media screen and (max-width: 1250px){
     .userinfo{
         height: 100px;
@@ -167,5 +177,11 @@ body{
     #noti-icon{
         height: 40px;
         width: 40px;
+    }
+}
+
+@media screen and (max-width: 767px){
+    #folded{
+        display: block;
     }
 }

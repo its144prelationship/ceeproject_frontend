@@ -216,7 +216,7 @@ body{
     color: #FFFFFF;
 }
 
-@media screen and (max-width: 1250px){
+@media screen and (min-width: 768px) and (max-width: 1250px){
     #notibar{
         height: 660px;
         width: 200px;
@@ -244,4 +244,12 @@ body{
         height: 20px;
         width: 20px;
     }
+}
+
+@media screen and (max-width: 767px){
+    #notibar{
+        margin-left: 30%;
+        padding: 5% 5%;
+    }
+    
 }

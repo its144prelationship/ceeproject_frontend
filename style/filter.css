@@ -116,6 +116,7 @@ body{
     justify-content: center;
     margin : 0 2%;
     color: hsl(97, 21%, 19%);
+    text-align: center;
 }
 #checkbox:hover{
     background: #cad677;
@@ -129,6 +130,8 @@ body{
     width: 20px;
     justify-content: center;
     margin : 0 2%;
+    color: hsl(97, 21%, 19%);
+    text-align: center;
 }
 #allcheckbox:hover{
     background: #cad677;
@@ -175,10 +178,12 @@ body{
     #checkbox{
         height: 15px;
         width: 15px;
+        font-size: 10px;
     }
     #allcheckbox{
         height: 15px;
         width: 15px;
+        font-size: 10px;
     }
     #subject{
         font-size: 14px;
@@ -186,5 +191,17 @@ body{
     #dot-filter{
         height: 10px;
         width: 10px;
+    }
+}
+
+@media screen and (max-width: 767px){
+    #contain-filter{
+        display: none;
+    }
+    #filterbar{
+        width: 250px;
+    }
+    #headline-filter{
+        margin-left: 10%;
     }
 }

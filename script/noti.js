@@ -177,6 +177,18 @@ function rejectHandler(invite){
     showNoti();
 }
 
+function overlayNoti(){
+    const displaypane = document.getElementById('displaypane');
+    const det = document.getElementById('det');
+    if('det'in displaypane.children){
+        displaypane.removeChild(det);
+    }
+    const modal = document.getElementById('modalBackDrop');
+    modal.style.display = "block";
+    const box = document.getElementById('det')
+    box.style.display = "block";
+}
+
 
 const notibox = document.getElementById("noti-press");
 notibox.addEventListener("click",showNoti);
