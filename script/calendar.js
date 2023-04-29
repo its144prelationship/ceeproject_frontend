@@ -115,7 +115,9 @@ function load() {
   // console.log(dt);
 
   if (nav !== 0) {
+    dt.setDate(1);
     dt.setMonth(new Date().getMonth() + nav);
+    console.log(dt);
   }
 
   const day = dt.getDate();

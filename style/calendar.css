@@ -247,7 +247,7 @@ button {
 #categoriesdropdown:hover, #categoriescontent {
   display: block;
 }
-#detail {
+#detailofall {
   display: flex;
   padding-left: 40px;
   margin-top: 20px;
@@ -454,7 +454,7 @@ button {
   }
   #weekdays div {
     width: 60px;
-    padding: 4px;
+    padding: 0px 15px 0px 0px;
     justify-content: right;
     margin: 0 0%;
   }
@@ -469,29 +469,21 @@ button {
     background-image: url("../image/weektitle.png");
   }
   .day {
-    font-family: 'Manrope';
     width: 70px;
     height: 70px;
-    cursor: pointer;
-    box-sizing: border-box;
-    /* background-color: #FEFFFC; */
     background-image: url("../image/normalday.png");
-    margin: 5px;
-    /* box-shadow: 0px 0px 3px #CBD4C2; */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-bottom: 3px;
   }
   .day:hover {
-    background-image: url("../image/inactiveday.png");
+    background-image: url("../image/inactiveday2.png");
   }
   .day + #currentDay {
-    background-image: url("../image/activeday.png");
+    background-image: url("../image/activeday2.png");
   }
   #dayNum {
-    padding: 7px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    margin-top: 1px;
     margin-left: 0%;
+    margin-right: 10%;
     text-align: center;
     font-size: 12px;
   }
@@ -499,6 +491,12 @@ button {
     margin: 0px 0px 0px 0px;
     display: flex;
     justify-content: space-evenly;
+  }
+  #addEvent {
+    margin: 4px 20px 0px 0px;
+    width: 18px;
+    height: 18px;
+    font-size: 16px;
   }
   #newEventDiv {
     display: flex;
@@ -542,6 +540,10 @@ button {
 
 }
 @media screen and (min-width: 768px) and (max-width: 1250px){
+  #header {
+    padding: 10px 0px 10px 400px;
+    font-size: 20px;
+  }
   #calendar {
     width: 100%;
     margin: auto;
@@ -558,46 +560,42 @@ button {
   #space{
     width: 50px;
   }
+  #weekdays {
+    padding: 0% 0% 0% 6%;
+  }
   #weekdays div {
     width: 60px;
-    padding: 4px;
+    /* padding: 4px; */
     justify-content: right;
-    margin: 0 0%;
+    margin: 0% 0%;
   }
   #sun, #mon, #tue, #wed, #thu, #fri, #sat {
-    height: 30px;
+    height: 20px;
+    width: 300px;
     font-size: 16px;
-    display: flex;
-    /* margin-right: 20px; */
-    justify-content: center;
-    /* margin-left: 5px;
-    margin-right: 5px; */
-    background-image: url("../image/weektitle.png");
+    /* display: flex; */
+    margin: 0px;
+    text-align: center;
+    background-color: #BDD9A2;
+    border-radius: 7px;
+    background-image: url("../image/weektitle2.png");
   }
   .day {
-    font-family: 'Manrope';
     width: 70px;
     height: 70px;
-    cursor: pointer;
-    box-sizing: border-box;
-    /* background-color: #FEFFFC; */
     background-image: url("../image/normalday.png");
-    margin: 5px;
-    /* box-shadow: 0px 0px 3px #CBD4C2; */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-bottom: 3px;
   }
   .day:hover {
-    background-image: url("../image/inactiveday.png");
+    background-image: url("../image/inactiveday2.png");
   }
   .day + #currentDay {
-    background-image: url("../image/activeday.png");
+    background-image: url("../image/activeday2.png");
   }
   #dayNum {
-    padding: 7px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    margin-top: 7px;
     margin-left: 0%;
+    margin-right: 10%;
     text-align: center;
     font-size: 12px;
   }
@@ -605,6 +603,12 @@ button {
     margin: 0px 0px 0px 0px;
     display: flex;
     justify-content: space-evenly;
+  }
+  #addEvent {
+    margin: 4px 20px 0px 0px;
+    width: 18px;
+    height: 18px;
+    font-size: 16px;
   }
   #newEventDiv {
     display: flex;
@@ -645,9 +649,56 @@ button {
   #header button:hover {
     color: #01a771;
   }
+  #newEventModal {
+    margin: 0 18%;
+    width: 600px;
+  }
 
 }
 @media screen and (max-width: 767px){
+  #header {
+    padding: 10px 0px 10px 400px;
+    font-size: 18px;
+  }
+  #weekdays {
+    padding: 0% 0% 0% 6%;
+  }
+  #weekdays div {
+    width: 60px;
+    /* padding: 4px; */
+    justify-content: right;
+    margin: 0% 0%;
+  }
+  #sun, #mon, #tue, #wed, #thu, #fri, #sat {
+    height: 20px;
+    width: 300px;
+    font-size: 16px;
+    /* display: flex; */
+    margin: 0px;
+    text-align: center;
+    background-color: #BDD9A2;
+    border-radius: 7px;
+    background-image: url("../image/weektitle2.png");
+  }
+  #dayNum {
+    padding: 0px 0px 0px 0px;
+    margin-top: 7px;
+    margin-left: 0%;
+    margin-right: 10%;
+    text-align: center;
+    font-size: 12px;
+  }
+  #calVal {
+    margin: 0px 0px 0px 0px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  #addEvent {
+    margin: 4px 20px 0px 0px;
+    width: 18px;
+    height: 18px;
+    font-size: 16px;
+  }
   #displaypane{
     flex-direction: column;
     justify-content: center;
@@ -676,7 +727,76 @@ button {
     border: 0px;
     color: #FFFFFF;
   }
+
 }
 /* @media screen and (min-width: 1024px)
 @media screen and (min-width: 768px) and (max-width: 1023px)
 @media screen and (max-width: 767px) */
+
+@media screen and (min-width: 680px) and (max-width: 767px) {
+  #newEventModal {
+    margin: 0 10%;
+    width: 580px;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 679px) {
+  #newEventModal {
+    margin: 0 5%;
+    width: 580px;
+  }
+}
+
+@media screen and (min-width: 501px) and (max-width: 599px) {
+  #newEventModal {
+    margin: 0 2%;
+    width: 540px;
+  }
+  #eventTitle {
+    margin-left: 5%;
+  }
+  #eventTitleInput {
+    width: 400px;
+  }
+  #dropbtn {
+    width: 340px;
+  }
+  #eventdetail {
+    width: 370px;
+  }
+  #eventinvite {
+    width: 275px;
+  }
+  #inviteexplain {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #newEventModal {
+    margin: 0 2%;
+    width: 480px;
+  }
+  #eventTitle {
+    margin-left: 5%;
+  }
+  #eventTitleInput {
+    width: 350px;
+  }
+  #dropbtn {
+    width: 280px;
+  }
+  #eventdetail {
+    width: 310px;
+  }
+  #onefriendname {
+    width: 200px;
+  }
+  #eventinvite {
+    width: 210px;
+  }
+  #inviteexplain {
+    margin-left: 140px;
+    font-size: 10px;
+  }
+}
