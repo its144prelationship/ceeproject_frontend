@@ -433,8 +433,120 @@ button {
   font-size: 10px;
   color: #000000;
 }
-
-@media screen and (max-width: 767px){
+@media screen and (max-width: 1250px){
+  #calendar {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: right;
+    justify-content: right;
+  }
+  #container {
+    width: 600px;
+    /* display: inline-block; */
+    align-items: baseline;
+  }
+  #space{
+    width: 50px;
+  }
+  #weekdays div {
+    width: 60px;
+    padding: 4px;
+    justify-content: right;
+    margin: 0 0%;
+  }
+  #sun, #mon, #tue, #wed, #thu, #fri, #sat {
+    height: 30px;
+    font-size: 16px;
+    display: flex;
+    /* margin-right: 20px; */
+    justify-content: center;
+    /* margin-left: 5px;
+    margin-right: 5px; */
+    background-image: url("../image/weektitle.png");
+  }
+  .day {
+    font-family: 'Manrope';
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    box-sizing: border-box;
+    /* background-color: #FEFFFC; */
+    background-image: url("../image/normalday.png");
+    margin: 5px;
+    /* box-shadow: 0px 0px 3px #CBD4C2; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 3px;
+  }
+  .day:hover {
+    background-image: url("../image/inactiveday.png");
+  }
+  .day + #currentDay {
+    background-image: url("../image/activeday.png");
+  }
+  #dayNum {
+    padding: 7px 0px 0px 0px;
+    margin-left: 0%;
+    text-align: center;
+    font-size: 12px;
+  }
+  #calVal {
+    margin: 0px 0px 0px 0px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  #newEventDiv {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 2px;
+    height: 15px; 
+    background: #e1e6e1;
+    /* opacity: 0.8; */
+    border-radius: 5px;
+  }
+  #newEventDivColor {
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
+    background: #FFE600;
+    border: 1px solid #000000;
+  }
+  #newEventDivName {
+    margin-left: 2px;
+    max-height: 15px; 
+    max-width: 30px;
+    font-size: 5px;
+    color: #000000;
+  }
+  button {
+    width: 40px;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px gray;
+    border: none;
+    outline: none;
+    padding: 2px;
+    border-radius: 5px;
+    color: white;
+  }
+  #header button {
+    padding: 0px 0px 0px 0px;
+    width: 20px;
+    font-family: 'Megrim';
+    font-weight: bold;
+    font-size: 18px;
+    color: #000000;
+    background-color:#EAF4CF;
+    box-shadow: 0px 0px 2px #EAF4CF;
+  }
+  #header button:hover {
+    color: #01a771;
+  }
 
 }
 

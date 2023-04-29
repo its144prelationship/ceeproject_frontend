@@ -150,3 +150,41 @@ body{
     margin: 1.5%;
 
 }
+
+@media screen and (max-width: 1250px){
+    #contain-filter{
+        height: 600px;
+        width: 200px;
+        /* flex-wrap: wrap; */
+        margin-top: 0px;
+        margin-left: 0%;
+    }
+    #filterbar{
+        width: 200px;
+        height: 660px;
+        padding: 20px 5px 0px 10px;
+    }
+    #headline-filter{
+        height: 25px;
+        width: 180px;
+        font-size: 12px;
+    }
+    #title-filter{
+        font-size: 14px;
+    }
+    #checkbox{
+        height: 15px;
+        width: 15px;
+    }
+    #allcheckbox{
+        height: 15px;
+        width: 15px;
+    }
+    #subject{
+        font-size: 14px;
+    }
+    #dot-filter{
+        height: 10px;
+        width: 10px;
+    }
+}

@@ -127,8 +127,6 @@ body{
     /* display:block; */
 }
 #noti-icon:hover{
-    height: 50px;
-    width: 50px;
     background-color: #9d9a9a44;
     border-radius: 50px;
     /* display:block; */
@@ -142,4 +140,32 @@ body{
     padding: 0px;
     justify-content: center;
     align-content: center;
+}
+@media screen and (max-width: 1250px){
+    .userinfo{
+        height: 100px;
+        width: 200px;
+    }
+    .profile{
+        height: 50px;
+        width: 50px;
+    }
+    .userid{
+        font-size: 14px;
+    }
+    .username{
+        font-size: 14px;
+    }
+    .logout{
+        height: 20px;
+        width: 50px;
+        font-size: 10px;
+    }
+    .logopic{
+        margin-left: 0px;
+    }
+    #noti-icon{
+        height: 40px;
+        width: 40px;
+    }
 }

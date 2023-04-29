@@ -215,3 +215,33 @@ body{
     border: 0px;
     color: #FFFFFF;
 }
+
+@media screen and (max-width: 1250px){
+    #notibar{
+        height: 660px;
+        width: 200px;
+    }
+    #title-noti{
+        font-size: 18px;
+    }
+    #message{
+        font-size: 10px;
+    }
+    #dot-invite{
+        height: 8px;
+        width: 8px;
+    }
+    #name-invite{
+        font-size: 12px;
+    }
+    #date-title,#date-invite,#time-title,#time-invite{
+        font-size: 11px;
+    }
+    #accept-button,#reject-button{
+        font-size: 10px;
+    }
+    #close-button{
+        height: 20px;
+        width: 20px;
+    }
+}

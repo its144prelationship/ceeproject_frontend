@@ -261,10 +261,45 @@
     border-radius: 12px;
     border: 0px;
     font-family: Manrope;
-    font-size: 12px;
     color:#ffffff;
     background-color: hsl(356, 97%, 24%);
-    margin-left: 150px;
     display: inline-block;
     padding: 2%;
+}
+@media screen and (max-width: 1250px){
+    #det{
+        height: 660px;
+        width: 200px;
+    }
+    #detailbar{
+        height: 660px;
+        width: 200px;
+    }
+    #date-detail{
+        font-size: 18px;
+    }
+    #headline{
+        font-size: 20px;
+    }
+    #taskbox{
+        width: 90%;
+        height: 40%;
+    }
+    #name,#time{
+        font-size: 10px;
+    }
+    #notetitle,#note,#parttitle,#member,#others{
+        font-size: 11px;
+    }
+    #others{
+        margin-left: 46%;
+    }
+    #close-button{
+        height: 15px;
+        width: 15px;
+    }
+    #delete-event{
+        font-size: 10px;
+        margin-left: 66%;
+    }
 }
