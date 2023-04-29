@@ -29,6 +29,16 @@ const getNoti = async () => {
 }
 
 function showNoti() {
+    //check 
+    const filterbox = document.getElementById('contain-filter')
+    const detailbox = document.getElementById('det')
+    if(filterbox.children.length >= 1){deleteFilterBar();}
+    if(detailbox.children.length >= 1){
+        closeDetailBar();
+        deleteFilterBar();
+    }
+    detailbox.style.display = "none";
+    if(noticontain.children.length >= 1){return;}
     //initialize notibar
     const notibar = document.createElement('div');
     notibar.id = "notibar";
@@ -130,6 +140,7 @@ function addNoti(invite){
 function closeNotibar(){
     const notibar = document.getElementById("notibar");
     notibar.remove();
+    showList();
 }
 
 const acceptREQ = async (invite) => {
@@ -166,3 +177,6 @@ function rejectHandler(invite){
     showNoti();
 }
 
+
+const notibox = document.getElementById("noti-press");
+notibox.addEventListener("click",showNoti);

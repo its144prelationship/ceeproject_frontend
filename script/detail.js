@@ -38,6 +38,7 @@ function showDetail(date, currentday, currentmonth, currentyear, currentdate){
     today = date;
     //create detail bar and initialize headline
     const det = document.getElementById('det');
+    det.style.display = "block";
     const detailbar = document.createElement('div');
     detailbar.id = "detailbar";
     det.appendChild(detailbar);

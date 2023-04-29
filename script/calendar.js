@@ -193,24 +193,21 @@ function load() {
       daySquare.addEventListener('click', () => {
         const clickDate = dayString.split('/')[2]+'-'+dayString.split('/')[0]+'-'+dayString.split('/')[1];
         const containdetail = document.getElementById('det');
+        const containnoti = document.getElementById('noticontain')
         if(containdetail.children.length === 1){
           closeDetailBar();
           deleteFilterBar();
-          const mon = [" ", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-          const d = ['SAT', 'SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI'];
-          showDetail(clickDate, d[(paddingDays+Number(dayString.split('/')[1]))%7], mon[dayString.split('/')[0]], dayString.split('/')[2], dayString.split('/')[1]);
-          detailon = true;
+        }
+        else if(containnoti.children.length === 1){
+          closeNotibar();
+          deleteFilterBar();
         }
         else{
           deleteFilterBar();
-          // showDetail(date, currentday, currentmonth, currentyear, currentdate);
-          const mon = [" ", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-          const d = ['SAT', 'SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI'];
-          showDetail(clickDate, d[(paddingDays+Number(dayString.split('/')[1]))%7], mon[dayString.split('/')[0]], dayString.split('/')[2], dayString.split('/')[1]);
-          detailon = false;
         }
-
-
+        const mon = [" ", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+        const d = ['SAT', 'SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI'];
+        showDetail(clickDate, d[(paddingDays+Number(dayString.split('/')[1]))%7], mon[dayString.split('/')[0]], dayString.split('/')[2], dayString.split('/')[1]);
       });
 
       daySquare.addEventListener('mouseenter', () => {

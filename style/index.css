@@ -124,5 +124,22 @@ body{
 #noti-icon{
     height: 50px;
     width: 50px;
-    display:block;
+    /* display:block; */
+}
+#noti-icon:hover{
+    height: 50px;
+    width: 50px;
+    background-color: #9d9a9a44;
+    border-radius: 50px;
+    /* display:block; */
+}
+
+#noti-press{
+    background-color: #EAF4CF;
+    border: 0px;
+    border-radius: 50px;
+    border-color: #EAF4CF;
+    padding: 0px;
+    justify-content: center;
+    align-content: center;
 }
