@@ -428,9 +428,12 @@ function seemore(){
   modal.style.display = "block";
   const box = document.getElementById('contain-filter')
   box.style.display = "block";
+  // const filterbox = document.getElementById('filterbar');
+  // filterbox.style.display = "block";
   //add close button
   const closebutton = document.getElementById('close-button-overlay');
   closebutton.addEventListener('click',closeOverlay);
+  closebutton.style.display = "block";
   showList();
 }
 

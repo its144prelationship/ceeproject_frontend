@@ -50,6 +50,7 @@ function showList() { //show each chechlist
     //init filterbar
     const filterbar = document.createElement('div');
     filterbar.id = "filterbar";
+    filterbar.style.display = "block";
     containfilter.appendChild(filterbar);
     //create headline
     const headline = document.createElement('section');

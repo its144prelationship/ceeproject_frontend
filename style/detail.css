@@ -20,8 +20,9 @@
     padding: 8%;
 }
 #det{
-    height: 660px;
-    width: 275px;
+    margin-top: 5%;
+    height: 700px;
+    width: 350px;
 }
 #detailbar{
     /* backdrop-filter: blur(5.5px);
@@ -36,8 +37,8 @@
     background: #ECF3EC;
     border: 0px solid #fafede;
     /* flex-basis: 200px; */
-    height: 660px;
-    width: 275px;
+    height: 700px;
+    width: 350px;
     padding: 5% 5%;
     overflow: auto; 
 }
@@ -250,7 +251,7 @@
     font-size: 12px;
     color:#ffffff;
     background-color: #9a4b4b;
-    margin-left: 60%;
+    margin-left: 78%;
     display: inline-block;
     padding: 2%;
 }
@@ -306,7 +307,7 @@
 
 @media screen and (max-width: 767px){
     #det{
-        margin-left: 30%;
+        margin-left: 25%;
         margin-bottom: 5%;
     }
 }

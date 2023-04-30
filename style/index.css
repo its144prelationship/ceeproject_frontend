@@ -53,14 +53,14 @@ body{
 }
 
 .profile{
-    height: 80px;
-    width: 80px;
-    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+    border-radius: 16px;
     display: inline-block;
     /* margin: 0%; */
     /* float: left; */
     margin-right: 2%;
-    margin-left: 2%;
+    margin-left: 5%;
 }
 
 #textbox-profile{
@@ -111,14 +111,17 @@ body{
     background-color: hsl(357, 75%, 35%);
 }
 .logopic{
-    height: 100px;
-    width: 274px;
+    height: 150px;
+    width: 411px;
     display: inline-block;
     margin-left: 40%;
 }
 
 .noti {
     margin-left: 40%;
+}
+#logouttext{
+    color: white;
 }
 
 #noti-icon{
@@ -151,6 +154,9 @@ body{
     align-self: center;
     display: none;
 }
+#close-button-overlay{
+    display: none;
+}
 @media screen and (max-width: 1250px){
     .userinfo{
         height: 100px;
@@ -172,16 +178,30 @@ body{
         font-size: 10px;
     }
     .logopic{
-        margin-left: 0px;
+        margin-left: 0%;
+        height: 100px;
+        width: 278px;
+
     }
     #noti-icon{
         height: 40px;
         width: 40px;
+    }
+    #close-button-overlay{
+        display: none;
     }
 }
 
 @media screen and (max-width: 767px){
     #folded{
         display: block;
+        margin-right: 1%;
+    }
+    .logopic{
+        height: 100px;
+        width: 278px;
+    }
+    #close-button-overlay{
+        display: none;
     }
 }

@@ -53,10 +53,10 @@ button {
   padding: 0 0 0 10%;
 }
 #space{
-  width: 80px;
+  width: 100px;
 }
 #container {
-  width: 770px;
+  width: 1000px;
   /* display: inline-block; */
   align-items: baseline;
 }
@@ -67,7 +67,7 @@ button {
   font-family: 'Megrim';
   font-weight: bold;
   color: #36432A;
-  padding-right: 4px;
+  padding-right: 85px;
 }
 #sun, #mon, #tue, #wed, #thu, #fri, #sat {
   height: 40px;
@@ -91,12 +91,12 @@ button {
 }
 .day {
   font-family: 'Manrope';
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   cursor: pointer;
   box-sizing: border-box;
   /* background-color: #FEFFFC; */
-  background-image: url("../image/normalday.png");
+  background-image: url("../image/normalday120.png");
   margin: 5px;
   /* box-shadow: 0px 0px 3px #CBD4C2; */
   display: flex;
@@ -105,14 +105,14 @@ button {
   padding-bottom: 3px;
 }
 .day:hover {
-  background-image: url("../image/inactiveday.png");
+  background-image: url("../image/inactiveday120.png");
 }
 
 .day + #currentDay {
-  background-image: url("../image/activeday.png");
+  background-image: url("../image/activeday120.png");
 }
 #dayNum {
-  padding: 7px 0px 0px 0px;
+  padding: 18px 7px 0px 0px;
   margin-left: 47px;
   text-align: center;
 }
@@ -621,6 +621,7 @@ button {
     background: #e1e6e1;
     /* opacity: 0.8; */
     border-radius: 5px;
+    margin-left: 5%;
   }
   #newEventDivColor {
     width: 5px;
@@ -682,7 +683,7 @@ button {
   }
   #dayNum {
     padding: 0px 0px 0px 0px;
-    margin-top: 7px;
+    margin-top: 8px;
     margin-left: 0%;
     margin-right: 10%;
     text-align: center;
@@ -694,7 +695,7 @@ button {
     justify-content: space-evenly;
   }
   #addEvent {
-    margin: 4px 20px 0px 0px;
+    margin: 4px 24px 0px 0px;
     width: 18px;
     height: 18px;
     font-size: 16px;

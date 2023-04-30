@@ -21,11 +21,12 @@ body{
     /* padding: 50px; */
 }
 #contain-filter{
-    height: 660px;
-    width: 300px;
+    height: 700px;
+    width: 350px;
     /* flex-wrap: wrap; */
     margin-top: 0px;
     margin-left: 0%;
+    margin-top: 5%;
 }
 #filterbar{
     backdrop-filter: blur(5.5px);
@@ -40,8 +41,8 @@ body{
     /* background: #e8ff56; */
     border: 1px solid #fafede;
     /* flex-basis: 200px; */
-    height: 660px;
-    width: 300px;
+    height: 700px;
+    width: 350px;
     padding: 30px 20px 0px 50px;
     opacity: 0.8;
     overflow: auto;
@@ -93,6 +94,7 @@ body{
     padding: 1%;
     text-align: center;
     align-content: center;
+    margin-left: 10%;
 }
 #title-filter{
     color: hsl(97, 21%, 19%);
@@ -169,7 +171,7 @@ body{
     }
     #headline-filter{
         height: 25px;
-        width: 180px;
+        width: 150px;
         font-size: 12px;
     }
     #title-filter{
@@ -197,9 +199,6 @@ body{
 @media screen and (max-width: 767px){
     #contain-filter{
         display: none;
-    }
-    #filterbar{
-        width: 250px;
     }
     #headline-filter{
         margin-left: 10%;

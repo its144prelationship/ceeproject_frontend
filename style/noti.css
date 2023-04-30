@@ -19,6 +19,9 @@ body{
     /* justify-content: right;
     padding: 50px; */
 }
+#noticontain{
+    margin-top: 5%;
+}
 #notibar{
     /* backdrop-filter: blur(5.5px);
     -webkit-backdrop-filter: blur(5.5px); */
@@ -32,8 +35,8 @@ body{
     background: #ECF3EC;
     border: 0px solid #fafede;
     /* flex-basis: 200px; */
-    height: 660px;
-    width: 300px;
+    height: 700px;
+    width: 350px;
     padding: 10% 10%;
     overflow: auto; 
 }
@@ -248,7 +251,7 @@ body{
 
 @media screen and (max-width: 767px){
     #notibar{
-        margin-left: 30%;
+        margin-left: 25%;
         padding: 5% 5%;
     }
     
