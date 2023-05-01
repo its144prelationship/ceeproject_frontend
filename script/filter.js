@@ -19,7 +19,7 @@ const getInfo = async () => { //fetch from backend
         method: "GET",
         credential: "include",
     };
-    await fetch('http://${backendIPAddress}/',options).then((response) => response.json())
+    await fetch('http://${backendIPAddress}/getStudent/',options).then((response) => response.json())
     .then((data) =>{
         const info = data;
         user_ID = info.userId;
@@ -201,4 +201,5 @@ function removeFilter(category){
     }
     filCalendar = temp;
 }
+// getInfo();
 showList();
