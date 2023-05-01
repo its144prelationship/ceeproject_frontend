@@ -1,6 +1,6 @@
 //import
 // import { showDetail } from './detail.js';
-
+const backendIPAddress = "127.0.0.1:3000";
 let nav = 0;
 let clicked = null;
 
@@ -446,8 +446,11 @@ const seemorebutton = document.getElementById('folded');
 seemorebutton.addEventListener("click",seemore);
 window.addEventListener("resize",setHeight);
 
-const logout = document.getElementById('logout');
-logout.addEventListener('click',logout);
+const logout = () => {
+  window.location.href = `http://${backendIPAddress}/logout`;
+};
+const logoutfront = document.getElementById('logout');
+logoutfront.addEventListener('click',logout);
 initEventDropdown();
 initButtons();
 load();
