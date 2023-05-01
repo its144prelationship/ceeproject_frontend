@@ -90,7 +90,7 @@ body{
     color: hsl(97, 23%, 35%);
     /* display: inline-block; */
 }
-.logout{
+#logout{
     background-color: hsl(97, 23%, 35%);
     border: 0px;
     border-radius: 12px;
@@ -107,7 +107,7 @@ body{
     /* margin-top: 2%; */
     display: inline-block;
 }
-.logout:hover{
+#logout:hover{
     background-color: hsl(357, 75%, 35%);
 }
 .logopic{

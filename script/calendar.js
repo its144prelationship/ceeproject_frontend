@@ -445,6 +445,9 @@ function closeOverlay(){
 const seemorebutton = document.getElementById('folded');
 seemorebutton.addEventListener("click",seemore);
 window.addEventListener("resize",setHeight);
+
+const logout = document.getElementById('logout');
+logout.addEventListener('click',logout);
 initEventDropdown();
 initButtons();
 load();
