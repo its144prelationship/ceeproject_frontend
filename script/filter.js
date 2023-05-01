@@ -1,3 +1,4 @@
+
 // var student_name;
 var student_id;
 var user_ID
@@ -15,19 +16,21 @@ var mySelectList;
 const Color = ["#5C1999","#0097B2","#4256B2","#216B39","#67AB3D","#FFFD61","#FFAE34","#C45454","#DDD8D8","#62462C","#9B8809","#FFA6F9","#F48F6A","#A8E0FF","#FFFFFF"]
 
 const getInfo = async () => { //fetch from backend 
+    const backendIPAddress =  "127.0.0.1:3000";
     const options = {
         method: "GET",
-        credential: "include",
+        credentials: "include",
     };
-    await fetch('http://${backendIPAddress}/getStudent/',options).then((response) => response.json())
+    await fetch(`http://${backendIPAddress}/`,options).then((response) => response.json())
     .then((data) =>{
-        const info = data;
-        user_ID = info.userId;
-        student_name = info.username;
-        student_id = info.id;
-        myCalendar = info.calendar;
-        myCourse = info.course;
-        mapColor();
+        console.log(data);
+        // const info = data;
+        // user_ID = info.userId;
+        // student_name = info.username;
+        // student_id = info.id;
+        // myCalendar = info.calendar;
+        // myCourse = info.course;
+        // mapColor();
     })
     .catch((error) => console.error(error));
 }
@@ -201,5 +204,5 @@ function removeFilter(category){
     }
     filCalendar = temp;
 }
-// getInfo();
+getInfo();
 showList();

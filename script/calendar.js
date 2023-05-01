@@ -50,6 +50,9 @@ const event1 = {"starttime":{"hour":"13","min":"45"} , "endtime":{"hour":"14","m
 const event2 = {"starttime":{"hour":"10","min":"20"} , "endtime":{"hour":"24","min":"60"} , "eventname":"Meeing CEE" , "category":{"subject":"COM ENG ESS","color":"#216B39"} , "creator":"Kim Taerae" , "detail":"cupid is dump" , "member":["ung"] , "eventid":"12346"};
 const myCalendar = {"2023-4-19":[event1,event2,event2,event2,event2,event2]}
 
+function getBackendIP(){
+  return backendIPAddress;
+}
 function initializeEventInfo(){
   eventName = '';
   eventStartTime = ['-1','-1'];
