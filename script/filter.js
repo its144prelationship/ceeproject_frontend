@@ -31,6 +31,9 @@ const getInfo = async () => { //fetch from backend
         setmyCalendar(info.myCalendar);
         myFullcalendar = info.myCalendar;
         myCourse = info.myCourse;
+        if(!("myEvent" in myCourse)){
+            myCourse.push("myEvent");
+        }
         myNoti = info.noti;
         mapColor();
         const displayid = document.getElementById('userid');
@@ -171,17 +174,13 @@ function deleteFilterBar() {
 function applyFilter(category){
     const temp = myCalendar;
     for (date in myFullcalendar){ //2023-08-14
-        console.log(date);
         var thisdate = date.split("-");
         var year = thisdate[0];
         var month = thisdate[1];
         var day = thisdate[2];
-        // console.log(parseInt(month));
-        console.log(today_month);
         if((parseInt(year)==today_year) && (parseInt(month)==today_month)){
             var tmp = myCalendar[date];
             for(let task of myFullcalendar[date]){
-                console.log(task);
                 if(task.category == category){
                     tmp.push(task);
                 }

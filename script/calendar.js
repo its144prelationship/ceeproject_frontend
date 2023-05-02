@@ -319,13 +319,39 @@ function saveEvent() {
 
   if(canSaveEvent) {
     eventName = eventTitleInput.value;
-    eventStartTime = [hrfirst0.value+hrfirst1.value, minfirst0.value+minfirst1.value];
-    if(hrlast0.value) eventEndTime = [hrlast0.value+hrlast1.value, minlast0.value+minlast1.value]; 
+    let starthour = hrfirst0.value+hrfirst1.value;
+    if(hrfirst0.value == '0'){
+      starthour = parseInt(hrfirst1.value);
+    }
+    let startmin = minfirst0.value+minfirst1.value;
+    if(minfirst0.value == '0'){
+      startmin = parseInt(minfirst1.value);
+    }
+    eventStartTime = {"hour":starthour, "min" :startmin};
+    if(hrlast0.value) {
+      let endhour = parseInt(hrlast0.value+hrlast1.value);
+      if(hrlast0.value == '0'){
+        endhour = parseInt(hrlast1.value);
+      }
+      let endmin = parseInt(minlast0.value+minlast1.value);
+      if(minlast0.value == '0'){
+        endmin = parseInt(minlast1.value);
+      }
+      eventEndTime = {"hour":endhour, "min" :endmin}; 
+    }
+    else{eventEndTime = {"hour":24, "min" :60}; }
     eventCategory = newEventModal.querySelector('#categories #categoriesdropdown #dropbtn').innerHTML;
     eventDetail = eventdetail.value;
     if(eventinvite.value) eventFriend.push(eventinvite.value);
-
+    const dt = new Date();
+    const day = dt.getDate();
+    const month = dt.getMonth();
+    const year = dt.getFullYear();
+    const d = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+    const paddingDays = weekdays.indexOf(month);
+    addNewEvent(day,d[(paddingDays+day)%7],month,year);
     closeModal();
+    init();
 
     // console.log(eventName, eventStartTime, eventEndTime, eventCategory, eventDetail, eventFriend, eventDate);
   }
@@ -348,6 +374,7 @@ function initButtons() {
 }
 
 function initEventDropdown(){
+  categoriesEvent = myCourse;
   for (let i = 0; i<categoriesEvent.length; i++){
     const a = document.createElement('a');
     a.innerText = categoriesEvent[i];
@@ -489,6 +516,42 @@ const logout = () => {
 const logoutfront = document.getElementById('logout');
 logoutfront.addEventListener('click',logout);
 
+const addNewEvent = async (dateadd,currentday,currentmonth,currentyear) => {
+  const date = dateadd;
+  const name = eventName;
+  const creater = student_name;
+  const detail = eventDetail;
+  const category = eventCategory;
+  // const date = eventDate;
+  const month = currentmonth+1;
+  const year = currentyear;
+  const day = currentday;
+  const starttime = eventStartTime;
+  const endtime = eventEndTime;
+  const member = eventFriend;
+  const options ={
+    method: "POST",
+    credentials: "include",
+    body: JSON.stringify({
+      name:name,
+      creater:creater,
+      detail:detail,
+      category:category,
+      date:date,
+      month:month,
+      year:year,
+      day:day,
+      starttime:starttime,
+      endtime:endtime,
+      member:member,
+    }),
+    headers:{
+      "Content-Type":"application/json",
+    }
+  };
+  console.log(options);
+  await fetch(`http://${backendIPAddress}/`, options);
+}
 const init = async () => {
   await getInfo();
   load();
@@ -496,7 +559,6 @@ const init = async () => {
   initButtons();
   showList();
   load();
-  console.log(getFillcalendar());
 }
 // initEventDropdown();
 // initButtons();
