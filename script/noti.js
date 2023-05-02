@@ -162,6 +162,7 @@ const acceptREQ = async (invite) => {
 }
 
 const deleteNoti = async(invite) => {
+
     const invitationId = invite.SK;
     const userId = user_ID;
     // const eventId = invite.eventId;
@@ -184,16 +185,22 @@ const deleteNoti = async(invite) => {
 }
 
 function acceptHandler(invite){
-    acceptREQ(invite);
-    deleteNoti(invite);
-    closeNotibar();
-    showNoti();
+    const acceptwait = async () => {
+        await acceptREQ(invite);
+        deleteNoti(invite);
+        closeNotibar();
+        showNoti();
+    }
+    acceptwait();
 }
 
 function rejectHandler(invite){
-    deleteNoti(invite);
-    closeNotibar();
-    showNoti();
+    const rejectwait = async () => {
+        await deleteNoti(invite);
+        closeNotibar();
+        showNoti();
+    }
+    rejectwait();
 }
 
 function overlayNoti(){
