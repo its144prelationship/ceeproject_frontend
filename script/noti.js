@@ -15,17 +15,6 @@ const noticontain = document.getElementById('noticontain');
 const invite1 = {"creator":"ung","eventname":"Meetine CEE","eventId":"12345","date":"TUE 19 APR 2023","starttime":{"hour":"20","min":"00"},"endtime":{"hour":"21","min":"00"},"category":"COM ENG ESS"};
 // let myNoti = [invite1,invite1,invite1,invite1];
 
-const getNoti = async () => {
-    const options = {
-        method: "GET",
-        credentials: "inclue",
-    };
-    await fetch('http://${backendIPAddress}/invites',options).then((response) => response.json())
-    .then((data) => {
-        myNoti = data;
-    })
-    .catch((error) => console.error(error));
-}
 
 function showNoti() {
     //check 

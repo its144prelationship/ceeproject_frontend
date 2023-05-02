@@ -319,11 +319,11 @@ function saveEvent() {
 
   if(canSaveEvent) {
     eventName = eventTitleInput.value;
-    let starthour = hrfirst0.value+hrfirst1.value;
+    let starthour = parseInt(hrfirst0.value+hrfirst1.value);
     if(hrfirst0.value == '0'){
       starthour = parseInt(hrfirst1.value);
     }
-    let startmin = minfirst0.value+minfirst1.value;
+    let startmin = parseInt(minfirst0.value+minfirst1.value);
     if(minfirst0.value == '0'){
       startmin = parseInt(minfirst1.value);
     }
@@ -343,10 +343,11 @@ function saveEvent() {
     eventCategory = newEventModal.querySelector('#categories #categoriesdropdown #dropbtn').innerHTML;
     eventDetail = eventdetail.value;
     if(eventinvite.value) eventFriend.push(eventinvite.value);
-    const dt = new Date();
-    const day = dt.getDate();
-    const month = dt.getMonth();
-    const year = dt.getFullYear();
+
+    const thisdate = eventDate.split('-');
+    const year = thisdate[0];
+    const month = thisdate[1];
+    const day = thisdate[2];
     const d = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
     const paddingDays = weekdays.indexOf(month);
     addNewEvent(day,d[(paddingDays+day)%7],month,year);
@@ -523,7 +524,7 @@ const addNewEvent = async (dateadd,currentday,currentmonth,currentyear) => {
   const detail = eventDetail;
   const category = eventCategory;
   // const date = eventDate;
-  const month = currentmonth+1;
+  const month = currentmonth;
   const year = currentyear;
   const day = currentday;
   const starttime = eventStartTime;

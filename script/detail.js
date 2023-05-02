@@ -176,26 +176,30 @@ function closeDetailBar(){
 
 function deleteEventHandler(eventId){
     //DELETE FROM LIST OF EVENT
-    deleteEvent(eventId);
+    // deleteEvent(eventId);
+    // init();
     //fetch new data to the calendar
+
     //getInfo();
     //refresh calendar 
     //code??
     //refresh detail bar
     closeDetailBar();
-    showDetail(today);
+    // showDetail(today);
 }
 
-const deleteEvent = async (eventId) => { 
+const deleteEvent = async (eventIdsent) => { 
     const userId  = user_ID;
+    const eventId = eventIdsent;
     const options = {
         method: "DELETE",
         credentials: "include",
         body: JSON.stringify({
-            userId,
+            userId:userId,
+            eventId:eventId,
         }),
     };
-    await fetch(`http://${backendIPAddress}/${eventId}`,options);
+    await fetch(`http://${backendIPAddress}/${eventId}/`,options);
 };
 // console.log("test");
 // showDetail("2023-04-19");
