@@ -319,23 +319,23 @@ function saveEvent() {
 
   if(canSaveEvent) {
     eventName = eventTitleInput.value;
-    let starthour = parseInt(hrfirst0.value+hrfirst1.value);
+    let starthour =Number(hrfirst0.value+hrfirst1.value);
     if(hrfirst0.value == '0'){
-      starthour = parseInt(hrfirst1.value);
+      starthour = Number(hrfirst1.value);
     }
-    let startmin = parseInt(minfirst0.value+minfirst1.value);
+    let startmin = Number(minfirst0.value+minfirst1.value);
     if(minfirst0.value == '0'){
-      startmin = parseInt(minfirst1.value);
+      startmin = Number(minfirst1.value);
     }
     eventStartTime = {"hour":starthour, "min" :startmin};
     if(hrlast0.value) {
-      let endhour = parseInt(hrlast0.value+hrlast1.value);
+      let endhour = Number(hrlast0.value+hrlast1.value);
       if(hrlast0.value == '0'){
-        endhour = parseInt(hrlast1.value);
+        endhour = Number(hrlast1.value);
       }
-      let endmin = parseInt(minlast0.value+minlast1.value);
+      let endmin = Number(minlast0.value+minlast1.value);
       if(minlast0.value == '0'){
-        endmin = parseInt(minlast1.value);
+        endmin = Number(minlast1.value);
       }
       eventEndTime = {"hour":endhour, "min" :endmin}; 
     }

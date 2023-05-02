@@ -15,7 +15,7 @@ var filCalendar;
 const Color = ["#5C1999","#0097B2","#4256B2","#216B39","#67AB3D","#FFFD61","#FFAE34","#C45454","#DDD8D8","#62462C","#9B8809","#FFA6F9","#F48F6A","#A8E0FF","#FFFFFF"]
 
 const getInfo = async () => { //fetch from backend 
-    const backendIPAddress =  "127.0.0.1:3000";
+    const backendIPAddress =  "44.194.84.164:3000";
     const options = {
         method: "GET",
         credentials: "include",
