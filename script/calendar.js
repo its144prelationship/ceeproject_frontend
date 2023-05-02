@@ -1,3 +1,10 @@
+window.addEventListener("load", () => {
+  const loaderpage = document.querySelector(".loaderpage");
+  loaderpage.classList.add("loaderpage-hidden");
+  loaderpage.addEventListener("transitionend", () => {
+    document.body.removeChild(loaderpage);
+  });
+});
 //import
 // import { showDetail } from './detail.js';
 const backendIPAddress = "127.0.0.1:3000";

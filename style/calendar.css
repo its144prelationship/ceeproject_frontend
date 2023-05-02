@@ -1,6 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Megrim:wght@400;500;600&display=swap');
 
+.loaderpage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* opacity: 0.8; */
+  background-color: #f1f6e3;
+  transition: opacity 0.75s, visibility 0.75s;
+}
+
+.loaderpage-hidden{
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loaderpage::after{
+  content: "";
+  width: 75px;
+  height: 75px;
+  border: 15px solid #dddddd;
+  border-top-color: #29cf50;
+  border-radius: 50%;
+  animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading {
+  from{
+    transform: rotate(0turn);
+  }to{
+    transform: rotate(1turn);
+  }
+}
+
 /* html{
   height: -webkit-fill-available;
 } */
