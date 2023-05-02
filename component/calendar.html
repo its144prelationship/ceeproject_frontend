@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../style/detail.css" />
     <link rel="stylesheet" href="../style/noti.css" />
   </head>
-  <body>
+  <body onload=init();>
     <div class="headertimeplant">
       <div class="userinfo">
         <img
@@ -20,8 +20,8 @@
           alt="Your Profile Pic"
         />
         <div id="textbox-profile">
-          <p class="userid">653XXXXX21</p>
-          <p class="username">Snowball hihi</p>
+          <p class="userid" , id="userid">653XXXXX21</p>
+          <p class="username", id="usernamed">Snowball hihi</p>
         </div>
         <button id="logout">
             <p>LOGOUT</p>
@@ -127,9 +127,9 @@
         <div id="contain-filter"></div>
       </div>
     </div>
-    <script src="../script/calendar.js"></script>
-    <script src="../script/filter.js"></script>
-    <script src="../script/detail.js"></script>
-    <script src="../script/noti.js"></script>
+    <script src="../script/calendar.js" defer></script>
+    <script src="../script/filter.js" defer></script>
+    <script src="../script/detail.js" defer></script>
+    <script src="../script/noti.js" defer></script>
   </body>
 </html>

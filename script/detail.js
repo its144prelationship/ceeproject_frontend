@@ -94,7 +94,7 @@ function showTaskbox(event){
     //dot
     const dot = document.createElement('span');
     dot.id = "dot";
-    dot.style.backgroundColor = event.category.color;
+    dot.style.backgroundColor = myCategory[event.category];
     title.appendChild(dot);
     //headline name + time 
     const texttitle = document.createElement('div');
@@ -103,15 +103,17 @@ function showTaskbox(event){
     //name 
     const name = document.createElement('p');
     name.id = "name";
-    name.innerText = event.eventname;
+    name.innerText = event.name;
     texttitle.appendChild(name);
     //time
     const time = document.createElement('p');
     if(event.endtime.hour != "24"){
-        time.innerText = (event.starttime.hour).concat(".",event.starttime.min," - ",event.endtime.hour,".",event.endtime.min);
+        time.innerText = event.starttime.hour+"."+event.starttime.min+ " - " + event.endtime.hour + "." + event.endtime.min;
+        // time.innerText = (event.starttime.hour).concat(".",event.starttime.min," - ",event.endtime.hour,".",event.endtime.min);
     }
     else{
-        time.innerText = (event.starttime.hour).concat(".",event.starttime.min);
+        time.innerText = event.starttime.hour+"."+event.starttime.min;
+        // time.innerText = (event.starttime.hour).concat(".",event.starttime.min);
     }
     time.id = "time";
     texttitle.appendChild(time);

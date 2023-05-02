@@ -2,16 +2,15 @@
 // var student_name;
 var student_id;
 var user_ID
-// var myCalendar;
-var myCourse = ["COM ENG ESS","GEN PHY II","CALCULAS"];
-var myCategory = {"COM ENG ESS":"#5C1999", "GEN PHY II":"#0097B2" , "CALCULAS":"#4256B2","CALCUsLAS":"#4256B2","CALwCULAS":"#4256B2","CALCULAS":"#4256B2","CALCweULAS":"#4256B2","CALCULAwddeS":"#4256B2",
-"CAdedeLCULAS":"#4256B2","CALCUwewLAS":"#4256B2","CALCULdeAS":"#4256B2","qwCALCULAS":"#4256B2","CALCqwULAS":"#4256B2","C11ALCULAS":"#4256B2"}; // {CEM:blue,CEE:green}
-var filCalendar;
+var myCourse = [];
+var myCategory = {};
 var currentmonth;
 var currentyear;
 var currentdate;
 var currentday;
 var mySelectList;
+var myFullcalendar;
+var filCalendar;
 // const containfilter = document.getElementById('contain-filter');
 const Color = ["#5C1999","#0097B2","#4256B2","#216B39","#67AB3D","#FFFD61","#FFAE34","#C45454","#DDD8D8","#62462C","#9B8809","#FFA6F9","#F48F6A","#A8E0FF","#FFFFFF"]
 
@@ -25,23 +24,33 @@ const getInfo = async () => { //fetch from backend
     .then((response) => response.json())
     .then((data) =>{
         console.log(data);
-        // const info = data;
-        // user_ID = info.userId;
-        // student_name = info.username;
-        // student_id = info.id;
-        // myCalendar = info.calendar;
-        // myCourse = info.course;
-        // mapColor();
+        const info = data;
+        user_ID = info.userId;
+        student_name = info.name;
+        student_id = info.studentId;
+        setmyCalendar(info.myCalendar);
+        myFullcalendar = info.myCalendar;
+        myCourse = info.myCourse;
+        myNoti = info.noti;
+        mapColor();
+        const displayid = document.getElementById('userid');
+        displayid.innerText = student_id;
+        const displayname = document.getElementById('usernamed');
+        displayname.innerText = student_name;
     })
     .catch((error) => console.error(error));
 }
 
 function mapColor(){
+    console.log(myCourse);
     var i =  0;
-    for(each in myCourse){
+    for(let each of myCourse){
         myCategory[each] = Color[i];
         i++;
     }
+    // myCourse.forEach(element => {
+    //     myCategory[elemrn]
+    // });
 }
 
 function showList() { //show each chechlist
@@ -85,12 +94,14 @@ function showList() { //show each chechlist
         }
         else{
             checkall.innerText = "";
-            filCalendar = {}
+            myCalendar = {};
+            removeAllFilter();
             const box = document.querySelectorAll('#eachrow #checkbox');
             box.forEach(box => {
                 box.innerText = "";
             })
         }
+        load();
     });
     const subject = document.createElement('p');
     subject.id = "subject";
@@ -105,6 +116,7 @@ function showList() { //show each chechlist
     for(sub in myCategory){
         addList(sub);
     }
+    applyAll();
 }
 
 
@@ -121,13 +133,14 @@ function addList(category){
         if(checkbox.innerText !== "✓"){ //if selected
             checkbox.innerText = "✓";
             applyFilter(category);
+            load();
         }
         else{
             checkbox.innerText = "";
             removeFilter(category);
             const box = document.getElementById('allcheckbox');
             box.innerText = "";
-
+            load();
         }
     });
     eachrow.appendChild(checkbox);
@@ -156,15 +169,19 @@ function deleteFilterBar() {
 }
 
 function applyFilter(category){
-    const temp = {};
-    for (date in filCalendar){ //2023-08-14
+    const temp = myCalendar;
+    for (date in myFullcalendar){ //2023-08-14
+        console.log(date);
         var thisdate = date.split("-");
         var year = thisdate[0];
         var month = thisdate[1];
         var day = thisdate[2];
-        if((parseInt(year)==currentyear) && (parseInt(month)==currentmonth)){
-            var tmp = [];
-            for(task in date){
+        // console.log(parseInt(month));
+        console.log(today_month);
+        if((parseInt(year)==today_year) && (parseInt(month)==today_month)){
+            var tmp = myCalendar[date];
+            for(let task of myFullcalendar[date]){
+                console.log(task);
                 if(task.category == category){
                     tmp.push(task);
                 }
@@ -174,36 +191,48 @@ function applyFilter(category){
             }
         }
     }
-    filCalendar = temp;
+    myCalendar = temp;
 }
 
 function applyAll(){
    const temp = {};
-   for (date in myCalendar){ //2023-08-14
+   for (date in myFullcalendar){ //2023-08-14
        var thisdate = date.split("-");
        var year = thisdate[0];
        var month = thisdate[1];
        var day = thisdate[2];
-       if((parseInt(year)==currentyear) && (parseInt(month)==currentmonth)){
-            temp[date] = myCalendar[date];
+       if((parseInt(year)==today_year) && (parseInt(month)==today_month)){
+            temp[date] = myFullcalendar[date];
        }
    }
-   filCalendar = temp;
+   myCalendar = temp;
 }
 
 
 function removeFilter(category){
     var temp = {};
-    for(date in filCalendar){
+    for(date in myCalendar){
+        console.log(myCalendar[date]);
         var tmp = [];
-        for(task in date){
+        for(let task of myCalendar[date]){
+            console.log(task);
             if(task.category != category){
                 tmp.push(task);
             }
         }
         temp[date] = tmp;
     }
-    filCalendar = temp;
+    myCalendar = temp;
 }
-getInfo();
-showList();
+
+function removeAllFilter(){
+    var temp = {};
+    myCalendar = temp;
+}
+
+function getFillcalendar() {
+    return filCalendar;
+}
+// await getInfo();
+// showList();
+// load();

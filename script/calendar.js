@@ -36,6 +36,10 @@ const eventdetail = document.getElementById('eventdetail');
 const eventinvite = document.getElementById('eventinvite');
 const showFriendList = document.getElementById('friendname');
 
+var today_day;
+var today_month;
+var today_year;
+
 //test info
 
 // const myCalendar = {"2023-4-19":[{"eventname":"QUIZ PROGLANG",
@@ -46,10 +50,16 @@ const showFriendList = document.getElementById('friendname');
 //                     "2023-4-6":[{"eventname":"QUIZ CALII",
 //                                   "category":{"subject":"CALII","color":'#62462C'}}]}
 
-const event1 = {"starttime":{"hour":"13","min":"45"} , "endtime":{"hour":"14","min":"00"} , "eventname":"QUIZ PROGLANG" , "category":{"subject":"Prog Lang","color":"#0097B2"} , "creator":"Kim Taerae" , "detail":"taeraetaerae" , "member":["ung","pp","meow"] , "eventid":"12345"};
-const event2 = {"starttime":{"hour":"10","min":"20"} , "endtime":{"hour":"24","min":"60"} , "eventname":"Meeing CEE" , "category":{"subject":"COM ENG ESS","color":"#216B39"} , "creator":"Kim Taerae" , "detail":"cupid is dump" , "member":["ung"] , "eventid":"12346"};
-const myCalendar = {"2023-4-19":[event1,event2,event2,event2,event2,event2]}
-
+// const event1 = {"starttime":{"hour":"13","min":"45"} , "endtime":{"hour":"14","min":"00"} , "eventname":"QUIZ PROGLANG" , "category":{"subject":"Prog Lang","color":"#0097B2"} , "creator":"Kim Taerae" , "detail":"taeraetaerae" , "member":["ung","pp","meow"] , "eventid":"12345"};
+// const event2 = {"starttime":{"hour":"10","min":"20"} , "endtime":{"hour":"24","min":"60"} , "eventname":"Meeing CEE" , "category":{"subject":"COM ENG ESS","color":"#216B39"} , "creator":"Kim Taerae" , "detail":"cupid is dump" , "member":["ung"] , "eventid":"12346"};
+// const myCalendar = {"2023-4-19":[event1,event2,event2,event2,event2,event2]}
+var myCalendar;
+function setmyCalendar(newcalendar){
+  myCalendar = newcalendar;
+}
+function getmyCalendar(){
+  return myCalendar;
+}
 function getBackendIP(){
   return backendIPAddress;
 }
@@ -127,6 +137,11 @@ function load() {
   const month = dt.getMonth();
   const year = dt.getFullYear();
 
+  today_day = day;
+  today_month = month+1;
+  today_year = year;
+
+
   const firstDayOfMonth = new Date(year, month, 1);
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   
@@ -164,12 +179,16 @@ function load() {
       daySquare.appendChild(calval);
 
       // add Event in that Day
-      var dayString2 = String(dayString.split('/')[2]+'-'+dayString.split('/')[0]+'-'+dayString.split('/')[1]);
-      if (dayString2 in myCalendar) {
+      var dayString2 = String(dayString.split('/')[2])+'-';
+      if(dayString.split('/')[0]<10) dayString2+='0';
+      dayString2+=String(dayString.split('/')[0])+'-';
+      if(dayString.split('/')[1]<10) dayString2+='0';
+      dayString2+=String(dayString.split('/')[1]);
+      if (myCalendar[dayString2]) {
         myCalendar[dayString2].forEach((item, index) => {
           if (index<2){
-            var createEventName = item["eventname"];
-            var createEventColor = item["category"]["color"];
+            var createEventName = item["name"];
+            var createEventColor = myCategory[item["category"]];
 
             const eventDiv = document.createElement('div');
             const eventDivName = document.createElement('div');
@@ -196,7 +215,12 @@ function load() {
       // });
 
       daySquare.addEventListener('click', () => {
-        const clickDate = dayString.split('/')[2]+'-'+dayString.split('/')[0]+'-'+dayString.split('/')[1];
+        // const clickDate = dayString.split('/')[2]+'-'+dayString.split('/')[0]+'-'+dayString.split('/')[1];
+        var clickDate = String(dayString.split('/')[2])+'-';
+        if(dayString.split('/')[0]<10) clickDate+='0';
+        clickDate+=String(dayString.split('/')[0])+'-';
+        if(dayString.split('/')[1]<10) clickDate+='0';
+        clickDate+=String(dayString.split('/')[1]);
         const containdetail = document.getElementById('det');
         const containnoti = document.getElementById('noticontain')
         if(containdetail.children.length === 1){
@@ -454,6 +478,16 @@ const logout = () => {
 };
 const logoutfront = document.getElementById('logout');
 logoutfront.addEventListener('click',logout);
-initEventDropdown();
-initButtons();
-load();
+
+const init = async () => {
+  await getInfo();
+  load();
+  initEventDropdown();
+  initButtons();
+  showList();
+  load();
+  console.log(getFillcalendar());
+}
+// initEventDropdown();
+// initButtons();
+// load();

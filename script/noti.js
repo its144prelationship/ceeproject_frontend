@@ -1,20 +1,19 @@
-// var myNoti;
-var student_name;
-var student_id;
-var user_ID;
-var myCourse;
+// var student_name;
+// var student_id;
+// var user_ID;
+// var myCourse;
 var currentday = "TUE";
 var currentmonth = "APR";
 var currentyear = 2023;
 var currentdate = 19;
 var myNotiList;
 var today;
-var myCategory = {"COM ENG ESS":"#5C1999", "GEN PHY II":"#0097B2" , "CALCULAS":"#4256B2","CALCUsLAS":"#4256B2","CALwCULAS":"#4256B2","CALCULAS":"#4256B2","CALCweULAS":"#4256B2","CALCULAwddeS":"#4256B2",
-"CAdedeLCULAS":"#4256B2","CALCUwewLAS":"#4256B2","CALCULdeAS":"#4256B2","qwCALCULAS":"#4256B2","CALCqwULAS":"#4256B2","C11ALCULAS":"#4256B2"}; // {CEM:blue,CEE:green}
+// let myCategory = {"COM ENG ESS":"#5C1999", "GEN PHY II":"#0097B2" , "CALCULAS":"#4256B2","CALCUsLAS":"#4256B2","CALwCULAS":"#4256B2","CALCULAS":"#4256B2","CALCweULAS":"#4256B2","CALCULAwddeS":"#4256B2",
+// "CAdedeLCULAS":"#4256B2","CALCUwewLAS":"#4256B2","CALCULdeAS":"#4256B2","qwCALCULAS":"#4256B2","CALCqwULAS":"#4256B2","C11ALCULAS":"#4256B2"}; // {CEM:blue,CEE:green}
 const noticontain = document.getElementById('noticontain');
 // 1 invite = {eventname,eventid,date,starttime,stoptime,category}
 const invite1 = {"creator":"ung","eventname":"Meetine CEE","eventId":"12345","date":"TUE 19 APR 2023","starttime":{"hour":"20","min":"00"},"endtime":{"hour":"21","min":"00"},"category":"COM ENG ESS"};
-const myNoti = [invite1,invite1,invite1,invite1];
+// let myNoti = [invite1,invite1,invite1,invite1];
 
 const getNoti = async () => {
     const options = {
