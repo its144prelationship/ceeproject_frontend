@@ -529,6 +529,7 @@ const addNewEvent = async (dateadd,currentday,currentmonth,currentyear) => {
   const starttime = eventStartTime;
   const endtime = eventEndTime;
   const member = eventFriend;
+  const userId = user_ID;
   const options ={
     method: "POST",
     credentials: "include",
@@ -544,6 +545,7 @@ const addNewEvent = async (dateadd,currentday,currentmonth,currentyear) => {
       starttime:starttime,
       endtime:endtime,
       member:member,
+      userId:userId,
     }),
     headers:{
       "Content-Type":"application/json",
