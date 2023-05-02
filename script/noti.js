@@ -107,7 +107,7 @@ function addNoti(invite){
     console.log(invite.event[date]);
     if(invite.event[date].endtime.hour != 24){
 
-        timeinvite.innerText = (String(invite.event[date].starttime.hour)).concat(".",String(invite.event[date].starttime.min)," - ",String(invite.event.endtime.hour),".",String(invite.event[date].endtime.min));
+        timeinvite.innerText = (String(invite.event[date].starttime.hour)).concat(".",String(invite.event[date].starttime.min)," - ",String(invite.event[date].endtime.hour),".",String(invite.event[date].endtime.min));
     }
     else{
         timeinvite.innerText = (String(invite.event[date].starttime.hour)).concat(".",String(invite.event[date].starttime.min));
