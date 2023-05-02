@@ -140,6 +140,7 @@ body{
     box-shadow: 0 1px 5px #c8c9a5;
 }
 #subject{
+    width: 180px;
     color: hsl(97, 23%, 35%);
     margin: 0 2%;
     font-size: 16px;
@@ -148,7 +149,6 @@ body{
 #dot-filter{
     height: 12.5px;
     width: 12.5px;
-    background-color: rgb(1, 120, 32);
     box-shadow: 0 1px 5px #c8c9a5;
     border-radius: 50%;
     display: inline-block;
@@ -189,6 +189,7 @@ body{
     }
     #subject{
         font-size: 14px;
+        width: 130px;
     }
     #dot-filter{
         height: 10px;

@@ -10,9 +10,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* opacity: 0.8; */
   background-color: #f1f6e3;
-  transition: opacity 0.75s, visibility 0.75s;
+  transition: opacity 15s, visibility 15s;
 }
 
 .loaderpage-hidden{
@@ -150,11 +149,11 @@ button {
 }
 #dayNum {
   padding: 7px 7px 0px 0px;
-  margin-left: 48px;
+  margin-left: 46px;
   text-align: center;
 }
 #calVal {
-  margin: 0px 6px 0px 4px;
+  margin: 0px 4px 0px 4px;
   display: flex;
   justify-content: space-evenly;
 }
@@ -479,7 +478,7 @@ button {
     display: flex;
     flex-wrap: wrap;
     align-content: right;
-    justify-content: right;
+    /* justify-content: right; */
   }
   #container {
     width: 600px;
@@ -587,7 +586,7 @@ button {
     display: flex;
     flex-wrap: wrap;
     align-content: right;
-    justify-content: right;
+    /* justify-content: right; */
   }
   #container {
     width: 600px;

@@ -161,6 +161,7 @@
     font-family: Manrope;
 }
 #name{
+    width: 140px;
     font-size: 14px;
     font-family: Manrope;
 }
@@ -286,7 +287,11 @@
         width: 90%;
         height: 40%;
     }
+    #title {
+        width: 140px;
+    }
     #name,#time{
+        width: 100px;
         font-size: 10px;
     }
     #notetitle,#note,#parttitle,#member,#others{

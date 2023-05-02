@@ -202,6 +202,9 @@ function load() {
             const eventDivColor = document.createElement('div');
             eventDivColor.id = 'newEventDivColor';
             eventDivName.id = 'newEventDivName';
+            eventDivName.style.whiteSpace = "nowarp";
+            eventDivName.style.overflow = "hidden";
+            eventDivName.style.textOverflow = "ellipsis";
             eventDiv.id = 'newEventDiv';
             eventDivColor.style.backgroundColor = createEventColor;
             eventDivName.innerText = createEventName;
