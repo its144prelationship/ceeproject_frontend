@@ -7,7 +7,7 @@ window.addEventListener("load", () => {
 });
 //import
 // import { showDetail } from './detail.js';
-const backendIPAddress = "127.0.0.1:3000";
+const backendIPAddress = "44.194.84.164:3000";
 let nav = 0;
 let clicked = null;
 
