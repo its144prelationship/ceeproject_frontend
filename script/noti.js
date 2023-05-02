@@ -115,11 +115,16 @@ function addNoti(invite){
     const accept_button = document.createElement('button');
     accept_button.id = "accept-button";
     accept_button.innerText = "Accept";
-    //accept_button.addEventListener("click",acceptHandler(invite));
+    //OPEN THIS//
+    // accept_button.addEventListener('click',function (){
+    //     acceptHandler(invite);
+    // });
     const reject_button = document.createElement('button');
     reject_button.id = "reject-button";
     reject_button.innerText = "Reject";
-    //reject_button.addEventListener("click",rejectHandler(invite));
+    // reject_button.addEventListener('click',function (){
+    //     rejectHandler(invite);
+    // });
     responsebox.append(accept_button,reject_button);
     //add all
     invitebox.append(message,eventname_invite,datebox,timebox,responsebox);
@@ -132,35 +137,48 @@ function closeNotibar(){
 }
 
 const acceptREQ = async (invite) => {
-    const event_id = invite.eventId;
+    const eventId = invite.eventId;
+    const userId = user_ID;
     const options ={
         method: "POST",
         credentials: "include",
         body: JSON.stringify({
-            user_ID,
-            event_id,
+            userId:userId,
+            eventId:eventId,
         }),
+        headers:{
+            "Content-Type":"application/json",
+        }
     };
-    await fetch(`http://${backendIPAddress}/event`,options);
+    await fetch(`http://${backendIPAddress}/invite`,options);
 }
 
-const deleteNoti = async(eventId) => {
+const deleteNoti = async(invite) => {
+    const invitationId = invite.invitationId;
+    const userId = user_ID;
     const options ={
         method: "DELETE",
         credentials: "include",
+        body: JSON.stringify({
+            invitationId:invitationId,
+            userId:userId;
+        }),
+        headers:{
+            "Content-Type":"application/json",
+        }
     };
-    await fetch(`http://${backendIPAddress}/invites/${eventId}`,options);
+    await fetch(`http://${backendIPAddress}/invite`,options);
 }
 
 function acceptHandler(invite){
     //acceptREQ(invite);
-    //deleteNoti(invite.eventId);
+    //deleteNoti(invite);
     closeNotibar();
     showNoti();
 }
 
 function rejectHandler(invite){
-    //deleteNoti(invite.eventId);
+    //deleteNoti(invite);
     closeNotibar();
     showNoti();
 }
