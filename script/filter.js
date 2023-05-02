@@ -21,7 +21,8 @@ const getInfo = async () => { //fetch from backend
         method: "GET",
         credentials: "include",
     };
-    await fetch(`http://${backendIPAddress}/`,options).then((response) => response.json())
+    await fetch(`http://${backendIPAddress}/`,options)
+    .then((response) => response.json())
     .then((data) =>{
         console.log(data);
         // const info = data;
