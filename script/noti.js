@@ -46,7 +46,7 @@ function showNoti() {
     const title = document.createElement('p');
     title.id = "title-noti";
     title.innerText = "Notification";
-    titlebox.appendChild(title)
+    titlebox.appendChild(title);
     //add logo
     const notipress = document.createElement('button');
     notipress.id = ""
@@ -66,6 +66,8 @@ function showNoti() {
 }
 
 function addNoti(invite){
+    console.log(invite);
+    const date = Object.keys(invite.event)[0];
     //create invite box
     const invitebox = document.createElement('div');
     invitebox.id = "invitebox";
@@ -73,7 +75,7 @@ function addNoti(invite){
     //add message
     const message = document.createElement('p');
     message.id = "message";
-    message.innerText = invite.creator + " has invited you to join";
+    message.innerText = invite.inviter + " has invited you to join";
     //add eventname
     const eventname_invite = document.createElement('div');
     eventname_invite.id = "eventname-invite";
@@ -82,7 +84,7 @@ function addNoti(invite){
     dot.style.backgroundColor = myCategory[invite.category];
     const eventname = document.createElement('p');
     eventname.id = "name-invite";
-    eventname.innerText = invite.eventname;
+    eventname.innerText = invite.event[date].name;
     eventname_invite.append(dot,eventname);
     //add date-box
     const datebox = document.createElement('div');
@@ -92,7 +94,7 @@ function addNoti(invite){
     datetitle.innerText = "Date :";
     const dateinvite = document.createElement('p');
     dateinvite.id = "date-invite";
-    dateinvite.innerText = invite.date;
+    dateinvite.innerText = date;
     datebox.append(datetitle,dateinvite);
     //add time-box
     const timebox = document.createElement('div');
@@ -102,11 +104,13 @@ function addNoti(invite){
     timetitle.innerText = "Time :";
     const timeinvite = document.createElement('p');
     timeinvite.id = "time-invite";
-    if(invite.endtime.hour !== "24"){
-        timeinvite.innerText = (invite.starttime.hour).concat(".",invite.starttime.min," - ",invite.endtime.hour,".",invite.endtime.min);
+    console.log(invite.event[date]);
+    if(invite.event[date].endtime.hour != 24){
+
+        timeinvite.innerText = (String(invite.event[date].starttime.hour)).concat(".",String(invite.event[date].starttime.min)," - ",String(invite.event.endtime.hour),".",String(invite.event[date].endtime.min));
     }
     else{
-        timeinvite.innerText = time.innerText = (invite.starttime.hour).concat(".",invite.starttime.min);
+        timeinvite.innerText = (String(invite.event[date].starttime.hour)).concat(".",String(invite.event[date].starttime.min));
     }
     timebox.append(timetitle,timeinvite);
     //add responsebox
@@ -116,15 +120,17 @@ function addNoti(invite){
     accept_button.id = "accept-button";
     accept_button.innerText = "Accept";
     //OPEN THIS//
-    // accept_button.addEventListener('click',function (){
-    //     acceptHandler(invite);
-    // });
+    accept_button.addEventListener('click',function (){
+        acceptHandler(invite);
+        window.location.reload();
+    });
     const reject_button = document.createElement('button');
     reject_button.id = "reject-button";
     reject_button.innerText = "Reject";
-    // reject_button.addEventListener('click',function (){
-    //     rejectHandler(invite);
-    // });
+    reject_button.addEventListener('click',function (){
+        rejectHandler(invite);
+        window.location.reload();
+    });
     responsebox.append(accept_button,reject_button);
     //add all
     invitebox.append(message,eventname_invite,datebox,timebox,responsebox);
@@ -137,14 +143,16 @@ function closeNotibar(){
 }
 
 const acceptREQ = async (invite) => {
-    const eventId = invite.eventId;
+    const eventId = invite.SK;
     const userId = user_ID;
+    const inviter = invite.inviter;
     const options ={
         method: "POST",
         credentials: "include",
         body: JSON.stringify({
             userId:userId,
             eventId:eventId,
+            inviter:inviter,
         }),
         headers:{
             "Content-Type":"application/json",
@@ -154,14 +162,19 @@ const acceptREQ = async (invite) => {
 }
 
 const deleteNoti = async(invite) => {
-    const invitationId = invite.invitationId;
+    const invitationId = invite.SK;
     const userId = user_ID;
+    // const eventId = invite.eventId;
+    const inviter = invite.inviter;
+    // const creater = invite.creater;
     const options ={
         method: "DELETE",
         credentials: "include",
         body: JSON.stringify({
             invitationId:invitationId,
-            userId:userId;
+            userId:userId,
+            // eventId:eventId,
+            inviter:inviter,
         }),
         headers:{
             "Content-Type":"application/json",
@@ -171,14 +184,14 @@ const deleteNoti = async(invite) => {
 }
 
 function acceptHandler(invite){
-    //acceptREQ(invite);
-    //deleteNoti(invite);
+    acceptREQ(invite);
+    deleteNoti(invite);
     closeNotibar();
     showNoti();
 }
 
 function rejectHandler(invite){
-    //deleteNoti(invite);
+    deleteNoti(invite);
     closeNotibar();
     showNoti();
 }
