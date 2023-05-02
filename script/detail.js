@@ -85,7 +85,7 @@ function showTaskbox(event){
     //create taskbox
     const taskbox = document.createElement('div');
     taskbox.id = "taskbox";
-    selection.appendChild(taskbox);
+    myselection.appendChild(taskbox);
     //title box
     const title = document.createElement('section');
     title.id = "title";
@@ -162,7 +162,9 @@ function showTaskbox(event){
     const deletebutton = document.createElement('button');
     deletebutton.id = "delete-event";
     deletebutton.innerText = "DELETE";
-    deletebutton.addEventListener("click",deleteEventHandler(event.eventId));
+    deletebutton.addEventListener('click',function (){
+        deleteEventHandler(event.eventId);
+    });
     taskbox.appendChild(deletebutton)
 }
 
@@ -175,17 +177,16 @@ function closeDetailBar(){
 }
 
 function deleteEventHandler(eventId){
+    
     //DELETE FROM LIST OF EVENT
-    deleteEvent(eventId);
-    init();
-    //fetch new data to the calendar
+    const deleted = async () => {
+        await  deleteEvent(eventId);
+        closeDetailBar();
+        init();
+    }
+    deleted();
+    window.location.reload();
 
-    //getInfo();
-    //refresh calendar 
-    //code??
-    //refresh detail bar
-    // closeDetailBar();
-    // showDetail(today);
 }
 
 const deleteEvent = async (eventIdsent) => { 
